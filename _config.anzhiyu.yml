@@ -1,30 +1,30 @@
 menu:
-  # 文章:
-  #   隧道: /archives/ || anzhiyu-icon-box-archive
-  #   分类: /categories/ || anzhiyu-icon-shapes
-  #   标签: /tags/ || anzhiyu-icon-tags
+   文章:
+     隧道: /archives/ || anzhiyu-icon-box-archive
+     分类: /categories/ || anzhiyu-icon-shapes
+     标签: /tags/ || anzhiyu-icon-tags
 
-  # 友链:
-  #   友人帐: /link/ || anzhiyu-icon-link
-  #   朋友圈: /fcircle/ || anzhiyu-icon-artstation
-  #   留言板: /comments/ || anzhiyu-icon-envelope
+   友链:
+     友人帐: /link/ || anzhiyu-icon-link
+     朋友圈: /fcircle/ || anzhiyu-icon-artstation
+     留言板: /comments/ || anzhiyu-icon-envelope
 
-  # 我的:
-  #   音乐馆: /music/ || anzhiyu-icon-music
-  #   追番页: /bangumis/ || anzhiyu-icon-bilibili
-  #   相册集: /album/ || anzhiyu-icon-images
-  #   小空调: /air-conditioner/ || anzhiyu-icon-fan
+   我的:
+     音乐馆: /music/ || anzhiyu-icon-music
+     追番页: /bangumis/ || anzhiyu-icon-bilibili
+     相册集: /album/ || anzhiyu-icon-images
+     小空调: /air-conditioner/ || anzhiyu-icon-fan
 
-  # 关于:
-  #   关于本人: /about/ || anzhiyu-icon-paper-plane
-  #   闲言碎语: /essay/ || anzhiyu-icon-lightbulb
-  #   随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
+   关于:
+     关于本人: /about/ || anzhiyu-icon-paper-plane
+     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
+     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
 
 # nav相关配置
 nav:
   enable: false
   travelling: false
-  clock: false
+  clock: true
   menu:
     - title: 网页
       item:
@@ -46,7 +46,7 @@ mourn:
 # Code Blocks (代码相关)
 # --------------------------------------
 
-highlight_theme: light #  darker / pale night / light / ocean / mac / mac light / false
+highlight_theme: mac light #  darker / pale night / light / ocean / mac / mac light / false
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
@@ -66,12 +66,12 @@ copy:
 # formal:
 #   name: link || icon
 social:
-  # Github: https://github.com/anzhiyu-c || anzhiyu-icon-github
-  # BiliBili: https://space.bilibili.com/372204786 || anzhiyu-icon-bilibili
+   Github: https://github.com/anzhiyu-c || anzhiyu-icon-github
+   BiliBili: https://space.bilibili.com/372204786 || anzhiyu-icon-bilibili
 
 # 作者卡片 状态
 author_status:
-  enable: false
+  enable: true
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
   statusImg: "https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png"
   skills:
@@ -177,18 +177,18 @@ error_404:
 
 post_meta:
   page: # Home Page
-    date_type: created # created or updated or both 主页文章日期是创建日或者更新日或都显示
-    date_format: simple # date/relative/simple 显示日期还是相对日期 或者 简单日期
+    date_type: both # created or updated or both 主页文章日期是创建日或者更新日或都显示
+    date_format: relative # date/relative/simple 显示日期还是相对日期 或者 简单日期
     categories: true # true or false 主页是否显示分类
     tags: true # true or false 主页是否显示标籤
     label: false # true or false 显示描述性文字
   post:
     date_type: both # created or updated or both 文章页日期是创建日或者更新日或都显示
-    date_format: date # date/relative 显示日期还是相对日期
+    date_format: relative # date/relative 显示日期还是相对日期
     categories: true # true or false 文章页是否显示分类
     tags: true # true or false 文章页是否显示标籤
     label: true # true or false 显示描述性文字
-    unread: false # true or false 文章未读功能
+    unread: true # true or false 文章未读功能
 
 # 主色调相关配置
 mainTone:
@@ -234,10 +234,10 @@ post_copyright:
   enable: true
   decode: false
   author_href:
-  location: 长沙
+  location: 成都
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
-  avatarSinks: false # hover时头像下沉
+  avatarSinks: true # hover时头像下沉
   copyright_author_img_back:
   copyright_author_img_front:
   copyright_author_link: /
@@ -246,10 +246,10 @@ post_copyright:
 reward:
   enable: true
   QR_code:
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png
-      link:
+    - img: https://cdn.this0.com/blog/base/wechat.jpg
+      link: #link可以不写，会默认为图片的链接。
       text: 微信
-    - img: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png
+    - img: https://cdn.this0.com/blog/base/alipay.jpg
       link:
       text: 支付宝
 
@@ -286,12 +286,12 @@ post_pagination: 2
 
 # Displays outdated notice for a post (文章过期提醒)
 noticeOutdate:
-  enable: false
+  enable: true
   style: flat # style: simple/flat
-  limit_day: 365 # When will it be shown
+  limit_day: 180 # When will it be shown
   position: top # position: top/bottom
-  message_prev: It has been
-  message_next: days since the last update, the content of the article may be outdated.
+  message_prev: 已经超过
+  message_next: 天没更新了.
 
 # Share System (分享功能)
 # --------------------------------------
@@ -793,7 +793,7 @@ aside:
     category: true
   card_author:
     enable: true
-    description: # <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div> # 默认为站点描述
+    description: <div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div> # 默认为站点描述
     name_link: /
 
   card_announcement:
@@ -890,7 +890,7 @@ centerConsole:
     color: false
     sort_order: # Don't modify the setting unless you know how it works
     highlightTags:
-      # - Hexo
+       - JavaSE
       # - 前端
   card_archives:
     enable: true
