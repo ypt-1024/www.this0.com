@@ -1,19 +1,17 @@
 menu:
    文章:
-     隧道: /archives/ || anzhiyu-icon-box-archive
+     归档: /archives/ || anzhiyu-icon-box-archive
      分类: /categories/ || anzhiyu-icon-shapes
      标签: /tags/ || anzhiyu-icon-tags
 
-   友链:
+   网站:
      友人帐: /link/ || anzhiyu-icon-link
-     朋友圈: /fcircle/ || anzhiyu-icon-artstation
+#  暂时不用   朋友圈: /fcircle/ || icon-artstation
      留言板: /comments/ || anzhiyu-icon-envelope
 
-   我的:
+   休闲:
      音乐馆: /music/ || anzhiyu-icon-music
-     追番页: /bangumis/ || anzhiyu-icon-bilibili
      相册集: /album/ || anzhiyu-icon-images
-     小空调: /air-conditioner/ || anzhiyu-icon-fan
 
    关于:
      关于本人: /about/ || anzhiyu-icon-paper-plane
@@ -22,7 +20,7 @@ menu:
 
 # nav相关配置
 nav:
-  enable: false
+  enable: true
   travelling: false
   clock: true
   menu:
@@ -768,7 +766,7 @@ subtitle:
 
 # Loading Animation (加载动画)
 preloader:
-  enable: true
+  enable: false
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
