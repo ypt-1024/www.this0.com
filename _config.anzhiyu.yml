@@ -3,20 +3,25 @@ menu:
      归档: /archives/ || anzhiyu-icon-box-archive
      分类: /categories/ || anzhiyu-icon-shapes
      标签: /tags/ || anzhiyu-icon-tags
-
-   网站:
-     友人帐: /link/ || anzhiyu-icon-link
-#  暂时不用   朋友圈: /fcircle/ || icon-artstation
-     留言板: /comments/ || anzhiyu-icon-envelope
+     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
 
    休闲:
      音乐馆: /music/ || anzhiyu-icon-music
      相册集: /album/ || anzhiyu-icon-images
 
-   关于:
-     关于本人: /about/ || anzhiyu-icon-paper-plane
-     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
-     随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
+   友链:
+     友人帐: /link/ || anzhiyu-icon-link
+     朋友圈: /fcircle/ || icon-artstation
+     留言板: /comments/ || anzhiyu-icon-envelope
+
+#   统计还没做:
+#     博客统计: /wangzhan/census/ || icon-wenzhangtongji
+#     文章统计: /wangzhan/census/ || icon-wenzhangtongji
+
+   个人:
+     唠叨: /essay/ || anzhiyu-icon-lightbulb
+     关于站长: /about/ || anzhiyu-icon-paper-plane
+
 
 # nav相关配置
 nav:
@@ -1065,7 +1070,7 @@ home_top:
 
 # 朋友圈配置
 friends_vue:
-  enable: false
+  enable: true
   vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
   apiurl: # 朋友圈后端地址
   top_tips: 使用 友链朋友圈 订阅友链最新文章
