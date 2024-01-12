@@ -1168,7 +1168,7 @@ greetingBox:
 
 # 文章顶部ai摘要
 post_head_ai_description:
-  enable: true
+  enable: false
   gptName: This0
   mode: tianli # 默认模式 可选值: tianli/local
   switchBtn: false # 可以配置是否显示切换按钮 以切换tianli/local
@@ -1176,7 +1176,7 @@ post_head_ai_description:
   randomNum: 3 # 按钮最大的随机次数，也就是一篇文章最大随机出来几种
   basicWordCount: 1000 # 最低获取字符数, 最小1000, 最大1999
   key: afe6236728abc2e4ae3c
-  Referer: http://this0.com//
+  Referer: http://this0.com/
 
 # 快捷键配置
 shortcutKey:
