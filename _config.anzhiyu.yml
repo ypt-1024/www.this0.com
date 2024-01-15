@@ -32,13 +32,8 @@ nav:
     - title: 网页
       item:
         - name: 博客
-          link: https://blog.anheyu.com/
+          link: https://this0.com/
           icon: /img/favicon.ico
-    - title: 项目
-      item:
-        - name: 安知鱼图床
-          link: https://image.anheyu.com/
-          icon: https://image.anheyu.com/favicon.ico
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示
@@ -1040,7 +1035,7 @@ home_top:
   timemode: date #date/updated
   title: 副标题A
   subTitle: 副标题B。
-  siteText: anheyu.com
+  siteText: this0.com
   category:
     - name: 前端
       path: /categories/前端开发/
