@@ -798,7 +798,7 @@ aside:
     enable: true
     content: 欢迎来看我的博客鸭~
   card_weixin:
-    enable: true
+    enable: false
     face: https://bu.dusays.com/2023/01/13/63c02edf44033.png
     backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
   card_recent_post:
@@ -807,7 +807,7 @@ aside:
     sort: date # date or updated
     sort_order: # Don't modify the setting unless you know how it works
   card_categories:
-    enable: false
+    enable: true
     limit: 8 # if set 0 will show all
     expand: none # none/true/false
     sort_order: # Don't modify the setting unless you know how it works
@@ -843,7 +843,7 @@ busuanzi:
 # Formal: Month/Day/Year Time or Year/Month/Day Time
 runtimeshow:
   enable: false
-  publish_date: 01/13/2024 00:00:00
+  publish_date: 01/16/2024 19:58:00
 
 # Console - Newest Comments
 newest_comments:
@@ -1033,8 +1033,8 @@ css_prefix: true
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 副标题A
-  subTitle: 副标题B。
+  title: 人间值得，
+  subTitle: 未来可期。
   siteText: this0.com
   category:
     - name: 前端
