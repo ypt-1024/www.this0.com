@@ -4342,7 +4342,7 @@ public class SpringJUnit4Test {
 
 
 
-## 7、事务//TODO暂缓
+## 7、事务//TODO springtx
 
 ### 7.1、JdbcTemplate
 
@@ -5228,7 +5228,7 @@ public class TxByAllAnnotationTest {
 
 
 
-## 8、资源操作：Resources //TODO暂缓
+## 8、资源操作：Resources //TODO不用
 
 ### 8.1、Spring Resources概述
 
@@ -5809,7 +5809,7 @@ ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:bean*.xm
 
 
 
-## 9、国际化：i18n //TODO暂缓
+## 9、国际化：i18n //TODO不用
 
 ![image-20221218154728062](http://cdn.this0.com/blog/img/image-20221218154728062.png)
 
@@ -5971,7 +5971,7 @@ public class Demo2 {
 
 
 
-## 10、数据校验：Validation//TODO暂缓
+## 10、数据校验：Validation//TODO不用
 
 ![image-20221218154808754](http://cdn.this0.com/blog/img/image-20221218154808754.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=79YDYjTXSpuvU4WSpgD79DSEZdE=&x-oss-process=style/cdn.this0)
 
@@ -6454,7 +6454,7 @@ public class CannotBlankValidator implements ConstraintValidator<CannotBlank, St
 
 
 
-## 11、提前编译：AOT//TODO暂缓
+## 11、提前编译：AOT//TODO不用
 
 ![image-20221218154841001](http://cdn.this0.com/blog/img/image-20221218154841001.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=MbeyEUZqJ1ZZEDrDu7kidZdCkKk=&x-oss-process=style/cdn.this0)
 
