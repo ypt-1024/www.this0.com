@@ -1044,7 +1044,7 @@ public void setHobbies(String[] hobbies) {
 
 
 
-#### 3.2.8、实验七：为集合类型属性赋值
+#### 3.2.8、`实验七：为集合类型属性赋值`
 
 ##### ①为List集合类型属性赋值
 
@@ -1249,7 +1249,7 @@ public void setTeacherMap(Map<String, Teacher> teacherMap) {
 
 
 
-#### 3.2.9、`实验八：p命名空间//TODO之后没看`
+#### 3.2.9、`实验八：p命名空间//`
 
 引入p命名空间
 
@@ -1274,7 +1274,7 @@ public void setTeacherMap(Map<String, Teacher> teacherMap) {
 
 
 
-#### 3.2.10、实验九：引入外部属性文件
+#### 3.2.10、实验九：`引入外部属性文件`
 
 **①加入依赖**
 
@@ -1296,7 +1296,7 @@ public void setTeacherMap(Map<String, Teacher> teacherMap) {
 
 **②创建外部属性文件**
 
-![images](http://cdn.this0.com/blog/img/img010.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=flOwpHVpWOj9R/yW6+UnLjhjjfk=&x-oss-process=style/cdn.this0)
+![images](http://cdn.this0.com/blog/img/img010.png)
 
 ```properties
 jdbc.user=root
@@ -1354,7 +1354,7 @@ public void testDataSource() throws SQLException {
 
 
 
-#### 3.2.11、实验十：bean的作用域
+#### 3.2.11、实验十：`bean的作用域,4个`
 
 **①概念**
 
@@ -1462,7 +1462,7 @@ public void testBeanScope(){
 
 
 
-#### 3.2.12、实验十一：bean生命周期
+#### 3.2.12、实验十一：`bean生命周期`
 
 **①具体的生命周期过程**
 
@@ -1627,7 +1627,7 @@ public class MyBeanProcessor implements BeanPostProcessor {
 
 **①简介**
 
-FactoryBean是Spring提供的一种整合第三方框架的常用机制。和普通的bean不同，配置一个FactoryBean类型的bean，在获取bean的时候得到的并不是class属性中配置的这个类的对象，而是getObject()方法的返回值。通过这种机制，Spring可以帮我们把复杂组件创建的详细过程和繁琐细节都屏蔽起来，只把最简洁的使用界面展示给我们。
+`FactoryBean`是Spring提供的一种整合第三方框架的常用机制。和普通的bean不同，配置一个FactoryBean类型的bean，`在获取bean的时候得到的并不是class属性中配置的这个类的对象，而是getObject()方法的返回值。`通过这种机制，Spring可以帮我们把复杂组件创建的详细过程和繁琐细节都屏蔽起来，只把最简洁的使用界面展示给我们。
 
 将来我们整合Mybatis时，Spring就是通过FactoryBean机制来帮我们创建SqlSessionFactory对象的。
 
@@ -1817,7 +1817,7 @@ public void testUserFactoryBean(){
 
 
 
-#### 3.2.14、`实验十三：基于xml自动装配//TODO之前没看`
+#### 3.2.14、`实验十三：基于xml自动装配`
 
 > 自动装配：
 >
@@ -1919,6 +1919,9 @@ public class UserDaoImpl implements UserDao {
 
 <bean id="userDao" class="com.atguigu.spring6.autowire.dao.impl.UserDaoImpl"></bean>
 ```
+
+`xml方式自动装配的说明：
+此案例中，如果不使用自动装配，那么需要手动给userController装配一个UserService类型的bean,比如叫：userService，自动装配就是完成这个过程（需要有对应的set方法）`
 
 > 自动装配方式：byName
 >
@@ -2022,7 +2025,7 @@ Spring 默认不使用注解装配 Bean，因此我们需要在 Spring 的 XML �
 
 注意：在使用 <context:component-scan> 元素开启自动扫描功能前，首先需要在 XML 配置的一级标签 <beans> 中添加 context 相关的约束。
 
-**情况一：最基本的扫描方式**
+**情况一：最基本的扫描方式**//排除不排除影响大吗
 
 ```xml
 <context:component-scan base-package="com.atguigu.spring6">
@@ -2101,7 +2104,7 @@ public @interface Autowired {
 
 源码中有两处需要注意：
 
-- 第一处：该注解可以标注在哪里？
+- 第一处：该注解`可以标注在哪里`？
 
 - - 构造方法上
   - 方法上
@@ -2109,7 +2112,7 @@ public @interface Autowired {
   - 属性上
   - 注解上
 
-- 第二处：该注解有一个required属性，默认值是true，表示在注入的时候要求被注入的Bean必须是存在的，如果不存在则报错。如果required属性设置为false，表示注入的Bean存在或者不存在都没关系，存在的话就注入，不存在的话，也不报错。
+- 第二处：该注解有一个required属性，默认值是true，表示在注入的时候要求`被注入的Bean必须是存在的`，如果不存在则报错。如果required属性设置为false，表示注入的Bean存在或者不存在都没关系，存在的话就注入，不存在的话，也不报错。
 
 ##### ①场景一：属性注入
 
@@ -2442,7 +2445,7 @@ public class UserServiceImpl implements UserService {
 
 测试通过
 
-**当有参数的构造方法只有一个时，@Autowired注解可以省略。**
+**`当有参数的构造方法只有一个时，@Autowired注解可以省略。`**
 
 说明：有多个构造方法时呢？大家可以测试（再添加一个无参构造函数），测试报错
 
@@ -2468,9 +2471,7 @@ public class UserDaoRedisImpl implements UserDao {
 
 测试：测试异常
 
-错误信息中说：不能装配，UserDao这个Bean的数量等于2
-
-怎么解决这个问题呢？**当然要byName，根据名称进行装配了。**
+`错误信息中说：不能装配，UserDao这个Bean的数量等于2,怎么解决这个问题呢**当然要byName，根据名称进行装配了。**`
 
 修改UserServiceImpl类
 
@@ -2509,14 +2510,14 @@ public class UserServiceImpl implements UserService {
 
 @Resource注解也可以完成属性注入。那它和@Autowired注解有什么区别？
 
-- @Resource注解是JDK扩展包中的，也就是说属于JDK的一部分。所以该注解是标准注解，更加具有通用性。(JSR-250标准中制定的注解类型。JSR是Java规范提案。)
+- `@Resource注解是JDK扩展包中的，也就是说属于JDK的一部分`。所以该注解是标准注解，更加具有通用性。(JSR-250标准中制定的注解类型。JSR是Java规范提案。)
 - @Autowired注解是Spring框架自己的。
 - **@Resource注解默认根据名称装配byName，未指定name时，使用属性名作为name。通过name找不到的话会自动启动通过类型byType装配。**
-- **@Autowired注解默认根据类型装配byType，如果想根据名称装配，需要配合@Qualifier注解一起用。**
+- **`@Autowired注解默认根据类型装配byType，如果想根据名称装配，需要配合@Qualifier注解一起用。`**
 - @Resource注解用在属性上、setter方法上。
 - @Autowired注解用在属性上、setter方法上、构造方法上、构造方法参数上。
 
-@Resource注解属于JDK扩展包，所以不在JDK当中，需要额外引入以下依赖：【**如果是JDK8的话不需要额外引入依赖。高于JDK11或低于JDK8需要引入以下依赖。**】
+@Resource注解属于JDK扩展包，所以不在JDK当中，需要额外引入以下依赖：【**如果是JDK8的话不需要额外引入依赖。高于JDK11或低于JDK8需要引入以下依赖。**】//TODO，java8新特性
 
 ```xml
 <dependency>
@@ -2661,7 +2662,7 @@ public class UserServiceImpl implements UserService {
 
 测试通过
 
-当@Resource注解使用时没有指定name的时候，还是根据name进行查找，这个name是属性名。
+`当@Resource注解使用时没有指定name的时候，还是根据name进行查找，这个name是属性名。`
 
 ##### ③场景三 其他情况
 
@@ -2699,7 +2700,7 @@ public class UserServiceImpl implements UserService {
 
 **总结：**
 
-@Resource注解：默认byName注入，没有指定name时把属性名当做name，根据name找不到时，才会byType注入。byType注入时，某种类型的Bean只能有一个
+`@Resource注解：默认byName注入，没有指定name时把属性名当做name，根据name找不到时，才会byType注入。byType注入时，某种类型的Bean只能有一个`
 
 
 
@@ -2734,7 +2735,7 @@ public void testAllAnnotation(){
 
 
 
-## 4、原理-手写IoC
+## 4、原理-手写IoC//TODO后面再看
 
 我们都知道，Spring框架的IOC是基于Java反射机制实现的，下面我们先回顾一下java反射。
 
@@ -3165,6 +3166,8 @@ public class AnnotationApplicationContext implements ApplicationContext {
 
 **⑦java类标识Bean注解**
 
+//TODO@Bean相对来说更加灵活，它可以独立加在方法上，按需注册到spring容器，而且如果你要用到第三方类库里面某个方法的时候，你就只能用@Bean把这个方法注册到spring容器，因为用@Component你需要配置组件扫描到这个第三方类路径而且还要在别人源代码加上这个注解，很明显是不现实的。
+
 ```java
 @Bean
 public class UserServiceImpl implements UserService
@@ -3374,7 +3377,7 @@ public interface Calculator {
 
 #### 5.1.2、创建实现类
 
-![images](http://cdn.this0.com/blog/img/img014.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=JKj4t8KRjWHA+yMrbvRKrcJODuU=&x-oss-process=style/cdn.this0)
+![images](http://cdn.this0.com/blog/img/img014.png)
 
 ```java
 public class CalculatorImpl implements Calculator {
@@ -3501,7 +3504,7 @@ public class CalculatorLogImpl implements Calculator {
 
 **③困难**
 
-解决问题的困难：要抽取的代码在方法内部，靠以前把子类中的重复代码抽取到父类的方式没法解决。所以需要引入新的技术。
+解决问题的困难：要抽取的代码在方法内部，`靠以前把子类中的重复代码抽取到父类的方式没法解决。所以需要引入新的技术`。
 
 
 
@@ -3517,7 +3520,7 @@ public class CalculatorLogImpl implements Calculator {
 
 使用代理后：
 
-![images](http://cdn.this0.com/blog/img/img017.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=hRenm8uR+NQc0rPKnr4khBf5jnc=&x-oss-process=style/cdn.this0)
+![images](http://cdn.this0.com/blog/img/img017.png)
 
 **②生活中的代理**
 
@@ -3568,21 +3571,38 @@ public class CalculatorStaticProxy implements Calculator {
 
 
 
-#### 5.2.3、动态代理
+#### 5.2.3、动态代理//TODO
 
-![images](http://cdn.this0.com/blog/img/img018.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=D2EtedhRUv080qqJfhaQJvaoB+U=&x-oss-process=style/cdn.this0)
+![images](http://cdn.this0.com/blog/img/img018.png)
 
-生产代理对象的工厂类：
+##### 1.  生产代理对象的工厂类getProxy.java：
+
+也就是使用java的Proxy类里面的newProxyInstance方法，生成动态代理类，需要三个参数：
+
+* 1、classLoader：目标对象类的`类加载器`
+* 2、interfaces：目标对象实现的`所有接口的class对象所组成的数组`
+* 3、invocationHandler：设置代理对象实现目标对象方法的过程，即`代理类中如何重写接口中的抽象方法`,在这个对象里面调用invoke方法，实现基本方法，添加新的代理方法。
+
+
 
 ```java
+package com.this0.aop;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.Arrays;
+
 public class ProxyFactory {
 
+    //注入目标对象
     private Object target;
 
     public ProxyFactory(Object target) {
         this.target = target;
     }
 
+    //返回代理对象
     public Object getProxy(){
 
         /**
@@ -3592,27 +3612,33 @@ public class ProxyFactory {
          * 2、interfaces：目标对象实现的所有接口的class对象所组成的数组
          * 3、invocationHandler：设置代理对象实现目标对象方法的过程，即代理类中如何重写接口中的抽象方法
          */
+
         ClassLoader classLoader = target.getClass().getClassLoader();
         Class<?>[] interfaces = target.getClass().getInterfaces();
         InvocationHandler invocationHandler = new InvocationHandler() {
+
+            /**
+             * 代理对象
+             * @param proxy
+             *
+             * 需要重写目标对象的方法
+             * @param method
+             *
+             * method方法里面参数
+             * @param args
+             */
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                /**
-                 * proxy：代理对象
-                 * method：代理对象需要实现的方法，即其中需要重写的方法
-                 * args：method所对应方法的参数
-                 */
-                Object result = null;
-                try {
-                    System.out.println("[动态代理][日志] "+method.getName()+"，参数："+ Arrays.toString(args));
-                    result = method.invoke(target, args);
-                    System.out.println("[动态代理][日志] "+method.getName()+"，结果："+ result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    System.out.println("[动态代理][日志] "+method.getName()+"，异常："+e.getMessage());
-                } finally {
-                    System.out.println("[动态代理][日志] "+method.getName()+"，方法执行完毕");
-                }
+
+                //方法调用之前输出
+                System.out.println("[动态代理][日志] "+method.getName()+"，参数："+ Arrays.toString(args));
+
+                //调用目标的方法
+                Object result = method.invoke(target, args);
+
+                //调用之后输出
+                System.out.println("[动态代理][日志] "+method.getName()+"，结果："+ result);
+
                 return result;
             }
         };
@@ -3620,6 +3646,7 @@ public class ProxyFactory {
         return Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
     }
 }
+
 ```
 
 
@@ -3638,7 +3665,7 @@ public void testDynamicProxy(){
 
 
 
-### 5.3、AOP概念及相关术语
+### 5.3、AOP概念及相关术语//TODO，记一下
 
 #### 5.3.1、概述
 
@@ -3648,19 +3675,19 @@ AOP（Aspect Oriented Programming）是一种设计思想，是软件设计领�
 
 ##### ①横切关注点
 
-分散在每个各个模块中解决同一样的问题，如用户验证、日志管理、事务处理、数据缓存都属于横切关注点。
+分散在每个各个模块中解决同一样的问题，如用户验证、日志管理、事务处理、数据缓存都属于`横切关注点`，我理解为附加功能。
 
 从每个方法中抽取出来的同一类非核心业务。在同一个项目中，我们可以使用多个横切关注点对相关方法进行多个不同方面的增强。
 
 这个概念不是语法层面的，而是根据附加功能的逻辑上的需要：有十个附加功能，就有十个横切关注点。
 
-![images](http://cdn.this0.com/blog/img/img019.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=wq6kcqwUxJaEKZMT+uaXi3nu+do=&x-oss-process=style/cdn.this0)
+![images](http://cdn.this0.com/blog/img/img019.png)
 
-##### ②通知（增强）
+##### ②通知（增强） 理解为想要增强的功能
 
 **增强，通俗说，就是你想要增强的功能，比如 安全，事务，日志等。**
 
-每一个横切关注点上要做的事情都需要写一个方法来实现，这样的方法就叫通知方法。
+每一个横切关注点上要做的事情都需要写一个方法来实现，这样的方法就叫通知方法。//TODO返回通知和后置通知的先后顺序
 
 - 前置通知：在被代理的目标方法**前**执行
 - 返回通知：在被代理的目标方法**成功结束**后执行（**寿终正寝**）
@@ -3672,9 +3699,9 @@ AOP（Aspect Oriented Programming）是一种设计思想，是软件设计领�
 
 ##### ③切面
 
-封装通知方法的类。
+`封装通知方法的类。`
 
-![images](http://cdn.this0.com/blog/img/img021.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=+yx/BHPadOdU2pKRowD3Xvthepg=&x-oss-process=style/cdn.this0)
+![images](http://cdn.this0.com/blog/img/img021.png)
 
 ##### ④目标
 
@@ -3682,25 +3709,25 @@ AOP（Aspect Oriented Programming）是一种设计思想，是软件设计领�
 
 ##### ⑤代理
 
-向目标对象应用通知之后创建的代理对象。
+`向目标对象应用通知之后创建的代理对象。`
 
 ##### ⑥连接点
 
 这也是一个纯逻辑概念，不是语法定义的。
 
-把方法排成一排，每一个横切位置看成x轴方向，把方法从上到下执行的顺序看成y轴，x轴和y轴的交叉点就是连接点。**通俗说，就是spring允许你使用通知的地方**
+把方法排成一排，每一个横切位置看成x轴方向，把方法从上到下执行的顺序看成y轴，x轴和y轴的交叉点就是连接点。**通俗说，就是`spring允许你使用通知的地方`**
 
 ![images](http://cdn.this0.com/blog/img/img022.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=dww/FL5ozGuBe8PrwZBiParAuNQ=&x-oss-process=style/cdn.this0)
 
 ##### ⑦切入点
 
-定位连接点的方式。
+`定位连接点的方式。`
 
 每个类的方法中都包含多个连接点，所以连接点是类中客观存在的事物（从逻辑上来说）。
 
 如果把连接点看作数据库中的记录，那么切入点就是查询记录的 SQL 语句。
 
-**Spring 的 AOP 技术可以通过切入点定位到特定的连接点。通俗说，要实际去增强的方法**
+**Spring 的 AOP 技术可以通过切入点定位到特定的连接点。通俗说，要`实际去增强的方法`**
 
 切点通过 org.springframework.aop.Pointcut 接口进行描述，它使用类和方法作为连接点的查询条件。
 
@@ -3722,13 +3749,13 @@ AOP（Aspect Oriented Programming）是一种设计思想，是软件设计领�
 
 ![image-20221216132844066](http://cdn.this0.com/blog/img/image-20221216132844066.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=ITiaxdy1/meZ6ljj2dKwFOsaiZc=&x-oss-process=style/cdn.this0)
 
-- 动态代理分为JDK动态代理和cglib动态代理
-- 当目标类有接口的情况使用JDK动态代理和cglib动态代理，没有接口时只能使用cglib动态代理
-- JDK动态代理动态生成的代理类会在com.sun.proxy包下，类名为$proxy1，和目标类实现相同的接口
-- cglib动态代理动态生成的代理类会和目标在在相同的包下，会继承目标类
+- 动态代理分为JDK动态代理和`cglib动态代理//TODO`
+- `当目标类有接口的情况使用JDK动态代理和cglib动态代理，没有接口时只能使用cglib动态代理`
+- `JDK动态代理动态生成的代理类会在com.sun.proxy包下，类名为$proxy1，和目标类实现相同的接口`
+- `cglib动态代理动态生成的代理类会和目标在在相同的包下，会继承目标类`
 - 动态代理（InvocationHandler）：JDK原生的实现方式，需要被代理的目标类必须实现接口。因为这个技术要求**代理对象和目标对象实现同样的接口**（兄弟两个拜把子模式）。
-- cglib：通过**继承被代理的目标类**（认干爹模式）实现代理，所以不需要目标类实现接口。
-- AspectJ：是AOP思想的一种实现。本质上是静态代理，**将代理逻辑“织入”被代理的目标类编译得到的字节码文件**，所以最终效果是动态的。weaver就是织入器。Spring只是借用了AspectJ中的注解。
+- `cglib：通过**继承被代理的目标类**（认干爹模式）实现代理，所以不需要目标类实现接口。`
+- `AspectJ：是AOP思想的一种实现。本质上是静态代理，**将代理逻辑“织入”被代理的目标类编译得到的字节码文件**，所以最终效果是动态的。`weaver就是织入器。Spring只是借用了AspectJ中的注解。
 
 #### 5.4.2、准备工作
 
@@ -3950,7 +3977,7 @@ public class CalculatorTest {
 
 执行结果：
 
-![image-20221102155523983](http://cdn.this0.com/blog/img/image-20221102155523983.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=ioWW1uV9J+vq/2kadCc4aAD7ndc=&x-oss-process=style/cdn.this0)
+![image-20221102155523983](http://cdn.this0.com/blog/img/image-20221102155523983.png)
 
 
 
@@ -4153,7 +4180,7 @@ public Object aroundMethod(ProceedingJoinPoint joinPoint){
 
 
 
-## 6、单元测试：JUnit
+## 6、单元测试：JUnit //TODO暂缓
 
 在之前的测试方法中，几乎都能看到以下的两行代码：
 
@@ -4315,7 +4342,7 @@ public class SpringJUnit4Test {
 
 
 
-## 7、事务
+## 7、事务//TODO暂缓
 
 ### 7.1、JdbcTemplate
 
@@ -5201,7 +5228,7 @@ public class TxByAllAnnotationTest {
 
 
 
-## 8、资源操作：Resources
+## 8、资源操作：Resources //TODO暂缓
 
 ### 8.1、Spring Resources概述
 
@@ -5782,9 +5809,9 @@ ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:bean*.xm
 
 
 
-## 9、国际化：i18n
+## 9、国际化：i18n //TODO暂缓
 
-![image-20221218154728062](http://cdn.this0.com/blog/img/image-20221218154728062.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=jtxU+KAr7ZZ2RXkG0KUFvihNrpI=&x-oss-process=style/cdn.this0)
+![image-20221218154728062](http://cdn.this0.com/blog/img/image-20221218154728062.png)
 
 ### 9.1、i18n概述
 
@@ -5944,13 +5971,13 @@ public class Demo2 {
 
 
 
-## 10、数据校验：Validation
+## 10、数据校验：Validation//TODO暂缓
 
 ![image-20221218154808754](http://cdn.this0.com/blog/img/image-20221218154808754.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=79YDYjTXSpuvU4WSpgD79DSEZdE=&x-oss-process=style/cdn.this0)
 
 ### 10.1、Spring Validation概述
 
-![image-20221206220207266](http://cdn.this0.com/blog/img/image-20221206220207266.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=cG1iV+zhB0TRLeyIxaoTi7ktbZs=&x-oss-process=style/cdn.this0)
+![image-20221206220207266](http://cdn.this0.com/blog/img/image-20221206220207266.png)
 
 在开发中，我们经常遇到参数校验的需求，比如用户注册的时候，要校验用户名不能为空、用户名长度不超过20个字符、手机号是合法的手机号格式等等。如果使用普通方式，我们会把校验的代码和真正的业务处理逻辑耦合在一起，而且如果未来要新增一种校验逻辑也需要在修改多个地方。而spring validation允许通过注解的方式来定义对象校验规则，把校验和业务逻辑分离开，让代码编写更加方便。Spring Validation其实就是对Hibernate Validator进一步的封装，方便在Spring中使用。
 
@@ -6427,7 +6454,7 @@ public class CannotBlankValidator implements ConstraintValidator<CannotBlank, St
 
 
 
-## 11、提前编译：AOT
+## 11、提前编译：AOT//TODO暂缓
 
 ![image-20221218154841001](http://cdn.this0.com/blog/img/image-20221218154841001.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=MbeyEUZqJ1ZZEDrDu7kidZdCkKk=&x-oss-process=style/cdn.this0)
 
@@ -6514,7 +6541,7 @@ Native Image 是一项创新技术，可将 Java 代码编译成独立的本机�
 
 **添加GRAALVM_HOME**
 
-![image-20221207110539954](http://cdn.this0.com/blog/img/image-20221207110539954.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=i88vMrHhuZy+05GdJYPfY0kC8K4=&x-oss-process=style/cdn.this0)
+![image-20221207110539954](http://cdn.this0.com/blog/img/image-20221207110539954.png)
 
 **把JAVA_HOME修改为graalvm的位置**
 
@@ -6542,7 +6569,7 @@ Native Image 是一项创新技术，可将 Java 代码编译成独立的本机�
 
 https://visualstudio.microsoft.com/zh-hans/downloads/
 
-![image-20221219112426052](http://cdn.this0.com/blog/img/image-20221219112426052.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=voSLcMiU26fBwl0tx+5/QyefXEg=&x-oss-process=style/cdn.this0)
+![image-20221219112426052](http://cdn.this0.com/blog/img/image-20221219112426052.png)
 
 ##### （2）安装Visual Studio
 
@@ -6558,7 +6585,7 @@ https://visualstudio.microsoft.com/zh-hans/downloads/
 
 
 
-![image-20221207111012582](http://cdn.this0.com/blog/img/image-20221207111012582.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=+Gr6z4BwUiSydxtz2mEBFwiepmc=&x-oss-process=style/cdn.this0)
+![image-20221207111012582](http://cdn.this0.com/blog/img/image-20221207111012582.png)
 
 
 
@@ -6607,9 +6634,9 @@ public class Hello {
 
 相比于使用JVM运行，Native Image的速度要快上不少，cpu占用也更低一些，从官方提供的各类实验数据也可以看出Native Image对于启动速度和内存占用带来的提升是非常显著的：
 
-![image-20221207111947283](http://cdn.this0.com/blog/img/image-20221207111947283.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=lei+urJcNUS6cumKYe1sCA/Ly6Q=&x-oss-process=style/cdn.this0)
+![image-20221207111947283](http://cdn.this0.com/blog/img/image-20221207111947283.png)
 
 
 
-![image-20221207112009852](http://cdn.this0.com/blog/img/image-20221207112009852.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=6yfXRSscPl2D7+t9irR+x+K+SXI=&x-oss-process=style/cdn.this0)
+![image-20221207112009852](http://cdn.this0.com/blog/img/image-20221207112009852.png)
 
