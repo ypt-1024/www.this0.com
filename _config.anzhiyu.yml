@@ -516,7 +516,7 @@ footer:
 #      # - link: https://image.anheyu.com
 #      #   text: 图床
        - link: https://beian.miit.gov.cn/
-         text: 蜀ICP备-2023013130号-2
+         text: 蜀ICP备-2023013130号
     subTitle:
       enable: false
       # Typewriter Effect (打字效果)
