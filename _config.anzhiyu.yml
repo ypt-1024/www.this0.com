@@ -33,7 +33,7 @@ nav:
       item:
         - name: 博客
           link: https://this0.com/
-          icon: /img/favicon.ico
+          icon: /img/favicon.png
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示
@@ -71,7 +71,7 @@ social:
 author_status:
   enable: true
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
-  statusImg: "https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png"
+  statusImg: "https://cdn.jsdelivr.net/gh/zc998800/cdn/face/gif/p011.gif"
   skills:
     # - 🤖️ 数码科技爱好者
     # - 🔍 分享与热心帮助
@@ -134,11 +134,11 @@ katex:
 # --------------------------------------
 
 # Favicon（网站图标）
-favicon: /favicon.ico
+favicon: /img/favicon.png
 
 # Avatar (头像)
 avatar:
-  img: https://bu.dusays.com/2023/04/27/64496e511b09c.jpg
+  img: https://cdn.this0.com/blog/base/favicon.png
   effect: false
 
 # Disable all banner image
@@ -414,11 +414,11 @@ footer:
   custom_text:
   runtime:
     enable: true
-    launch_time: 01/13/2024 00:00:00 # 网站上线时间
-    work_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-上班摸鱼中.svg
-    work_description: 距离月入25k也就还差一个大佬带我~
-    offduty_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-下班啦.svg
-    offduty_description: 下班了就该开开心心的玩耍，嘿嘿~
+    launch_time: 01/23/2024 15:04:00 # 网站上线时间
+    work_img: https://this0.oss-cn-chengdu.aliyuncs.com/blog/base/svg/this0-%E4%B8%8A%E7%8F%AD%E4%B8%AD%F0%9F%92%BB.svg
+    work_description: 上班中就要认认真真的工作
+    offduty_img: https://this0.oss-cn-chengdu.aliyuncs.com/blog/base/svg/this0-%E4%BC%91%E6%81%AF%E5%95%A6%F0%9F%8C%99.svg
+    offduty_description: 下班了就该开开心心的玩耍
   # 徽标部分配置项 https://shields.io/
   # https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr
   bdageitem:
@@ -427,18 +427,18 @@ footer:
       - link: https://hexo.io/ #徽标指向网站链接
         shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg #徽标API
         message: 博客框架为Hexo_v5.4.0 #徽标提示语
-      - link: https://blog.anheyu.com/
-        shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
-        message: 本站使用AnZhiYu主题
+#      - link: https://blog.anheyu.com/
+#        shields: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg
+#        message: 本站使用AnZhiYu主题
       # - link: https://www.dogecloud.com/
       #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg
       #   message: 本站使用多吉云为静态资源提供CDN加速
-      # - link: https://github.com/
-      #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
-      #   message: 本站项目由Github托管
-      # - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
-      #   shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
-      #   message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
+      - link: https://github.com/
+        shields: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg
+        message: 本站项目由Github托管
+      - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
+        shields: https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg
+        message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
   socialBar:
     enable: false
     centerImg:
@@ -511,12 +511,12 @@ footer:
       enable: false
       link: /copyright
     linkList:
-      - link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
-        text: 主题
-      # - link: https://image.anheyu.com
-      #   text: 图床
-      # - link: https://beian.miit.gov.cn/
-      #   text: 湘ICP备-xxxxxxx号
+#      - link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
+#        text: 主题
+#      # - link: https://image.anheyu.com
+#      #   text: 图床
+       - link: https://beian.miit.gov.cn/
+         text: 蜀ICP备-2023013130号-2
     subTitle:
       enable: false
       # Typewriter Effect (打字效果)
@@ -1037,17 +1037,17 @@ home_top:
   subTitle: 未来可期。
   siteText: this0.com
   category:
-    - name: 前端
-      path: /categories/前端开发/
+    - name: Java
+      path: /categories/JavaSE/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
-    - name: 大学
-      path: /categories/大学生涯/
+    - name: Godot
+      path: /categories/Godot/
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire
-    - name: 生活
+    - name: 简历
       path: /categories/生活日常/
       shadow: var(--anzhiyu-shadow-green)
       class: green
