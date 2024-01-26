@@ -4180,7 +4180,7 @@ public Object aroundMethod(ProceedingJoinPoint joinPoint){
 
 
 
-## 6、单元测试：JUnit //TODO暂缓
+## 6、单元测试：JUnit
 
 在之前的测试方法中，几乎都能看到以下的两行代码：
 
@@ -4189,7 +4189,7 @@ ApplicationContext context = new ClassPathXmlApplicationContext("xxx.xml");
 Xxxx xxx = context.getBean(Xxxx.class);
 ```
 
-这两行代码的作用是创建Spring容器，最终获取到对象，但是每次测试都需要重复编写。针对上述问题，我们需要的是程序能自动帮我们创建容器。我们都知道JUnit无法知晓我们是否使用了 Spring 框架，更不用说帮我们创建 Spring 容器了。Spring提供了一个运行器，可以读取配置文件（或注解）来创建容器。我们只需要告诉它配置文件位置就可以了。这样一来，我们通过Spring整合JUnit可以使程序创建spring容器了
+这两行代码的作用是创建Spring容器，最终获取到对象，但是每次测试都需要重复编写。针对上述问题，`我们需要的是程序能自动帮我们创建容器`。我们都知道JUnit无法知晓我们是否使用了 Spring 框架，更不用说帮我们创建 Spring 容器了。Spring提供了一个运行器，可以读取配置文件（或注解）来创建容器。我们只需要告诉它配置文件位置就可以了。这样一来，我们通过Spring整合JUnit可以使程序创建spring容器了
 
 ### 6.1、整合JUnit5
 
@@ -4272,6 +4272,8 @@ public class User {
 
 #### 6.1.5、测试
 
+//TODO，两种方式
+
 ```java
 import com.atguigu.spring6.bean.User;
 import org.junit.jupiter.api.Test;
@@ -4317,6 +4319,8 @@ JUnit4在公司也会经常用到，在此也学习一下
 ```
 
 #### 6.2.2、测试
+
+//TODO，junit4和5，和普通的@Test有什么区别？
 
 ```java
 import com.atguigu.spring6.bean.User;
