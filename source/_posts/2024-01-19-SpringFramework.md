@@ -4346,7 +4346,7 @@ public class SpringJUnit4Test {
 
 
 
-## 7、事务//TODO springtx
+## 7、事务 springtx
 
 ### 7.1、JdbcTemplate
 
@@ -6001,7 +6001,7 @@ public class Demo2 {
 
 **第一步 创建子模块 spring6-validator**
 
-![image-20221206221002615](http://cdn.this0.com/blog/img/image-20221206221002615.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=NzW/U8uZl1JDXWHI7x+qstlw6EQ=&x-oss-process=style/cdn.this0)
+![image-20221206221002615](http://cdn.this0.com/blog/img/image-20221206221002615.png)
 
 
 
