@@ -1042,16 +1042,16 @@ home_top:
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
-    - name: Godot
-      path: /categories/Godot/
-      shadow: var(--anzhiyu-shadow-red)
-      class: red
-      icon: anzhiyu-icon-fire
-    - name: 简历
-      path: /categories/生活日常/
-      shadow: var(--anzhiyu-shadow-green)
-      class: green
-      icon: anzhiyu-icon-book
+#    - name: Godot
+#      path: /categories/Godot/
+#      shadow: var(--anzhiyu-shadow-red)
+#      class: red
+#      icon: anzhiyu-icon-fire
+#    - name: 简历
+#      path: /categories/生活日常/
+#      shadow: var(--anzhiyu-shadow-green)
+#      class: green
+#      icon: anzhiyu-icon-book
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper:
     enable: false
