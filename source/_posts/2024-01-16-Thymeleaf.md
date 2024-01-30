@@ -5,12 +5,16 @@ tags:
   - Thymeleaf
 categories:
   - JavaWeb
+copyright_author: 尚硅谷
+copyright_author_href: 'https://atguigu.com'
+copyright_url: 'https://atguigu.com'
+copyright_info: 此文章版权归尚硅谷所有，如有转载，请注明来自原作者
 abbrlink: b12a1160
 date: 2024-01-16 23:30:17
 description:
 ---
 
-### Thmeleaf
+### Thmeleaf //新版javaweb已经删了
 
 ### 1. 内容讲解
 
