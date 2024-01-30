@@ -14,6 +14,8 @@ description:
 
 ![image-20221209110043449](http://cdn.this0.com/blog/img/image-20221209110043449.png)
 
+我的项目代码在：https://github.com/baifengxiao/SSM.git
+
 ## 1、概述
 
 ### 1.1、Spring是什么？
@@ -1002,9 +1004,11 @@ public void setClazz(Clazz clazz) {
 </bean>
 ```
 
+{% folding cyan, 查看默认打开的折叠框 %}
 
+折叠起来这些用的很少很少
 
-#### 3.2.7、实验六：为数组类型属性赋值
+#### 3.2.7、`实验六：为数组类型属性赋值`
 
 **①修改Student类**
 
@@ -1041,8 +1045,6 @@ public void setHobbies(String[] hobbies) {
     </property>
 </bean>
 ```
-
-
 
 #### 3.2.8、`实验七：为集合类型属性赋值`
 
@@ -1249,7 +1251,7 @@ public void setTeacherMap(Map<String, Teacher> teacherMap) {
 
 
 
-#### 3.2.9、`实验八：p命名空间//`
+#### 3.2.9、`实验八：p命名空间`
 
 引入p命名空间
 
@@ -1352,9 +1354,9 @@ public void testDataSource() throws SQLException {
 }
 ```
 
+{% endfolding %}
 
-
-#### 3.2.11、实验十：`bean的作用域,4个`
+#### 3.2.11、实验十：`bean的作用域,4个//TODO`
 
 **①概念**
 
@@ -1462,7 +1464,7 @@ public void testBeanScope(){
 
 
 
-#### 3.2.12、实验十一：`bean生命周期`
+#### 3.2.12、实验十一：`bean生命周期//TODO`
 
 **①具体的生命周期过程**
 
@@ -1623,7 +1625,7 @@ public class MyBeanProcessor implements BeanPostProcessor {
 
 
 
-#### 3.2.13、实验十二：FactoryBean
+#### 3.2.13、实验十二：FactoryBean//TODO
 
 **①简介**
 
@@ -3877,6 +3879,10 @@ public class CalculatorImpl implements Calculator {
 
 #### 5.4.3、创建切面类并配置
 
+`格式：`
+
+![image-20240130191405595](http://cdn.this0.com/blog/img/image-20240130191405595.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=bQv3ihEOGG8FUYcIWIK6qLCRyEk=&x-oss-process=style/cdn.this0)
+
 ```java
 // @Aspect表示这个类是一个切面类
 @Aspect
@@ -4036,7 +4042,7 @@ public class CalculatorTest {
 
 
 
-#### 5.4.6、重用切入点表达式
+#### 5.4.6、重用切入点表达式，@Pointcut注解
 
 **①声明**
 
@@ -4046,6 +4052,8 @@ public void pointCut(){}
 ```
 
 **②在同一个切面中使用**
+
+@Pointcut注解后＋方法名
 
 ```java
 @Before("pointCut()")
@@ -4057,6 +4065,8 @@ public void beforeMethod(JoinPoint joinPoint){
 ```
 
 **③在不同切面中使用**
+
+@Pointcut注解后＋全路径名
 
 ```java
 @Before("com.atguigu.aop.CommonPointCut.pointCut()")
@@ -4137,7 +4147,7 @@ public Object aroundMethod(ProceedingJoinPoint joinPoint){
 
 
 
-#### 5.4.9、切面的优先级
+#### 5.4.9、`切面的优先级`
 
 相同目标方法上同时存在多个切面时，切面的优先级控制切面的**内外嵌套**顺序。
 
@@ -4598,7 +4608,7 @@ public void selectCount(){
 
 
 
-#### 7.2.2、编程式事务
+#### 7.2.2、编程式事务//TODO数据库中已经学过
 
 事务功能的相关操作全部通过自己编写代码来实现：
 
@@ -5181,7 +5191,7 @@ public class TxByAllAnnotationTest {
 
 
 
-### 7.4、基于XML的声明式事务
+### 7.4、基于XML的声明式事务 //TODO存档不看
 
 #### 7.3.1、场景模拟
 
@@ -5821,8 +5831,6 @@ ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:bean*.xm
 
 国际化也称作i18n，其来源是英文单词 internationalization的首末字符i和n，18为中间的字符数。由于软件发行可能面向多个国家，对于不同国家的用户，软件显示不同语言的过程就是国际化。通常来讲，软件中的国际化是通过配置文件来实现的，假设要支撑两种语言，那么就需要两个版本的配置文件。
 
-
-
 ### 9.2、Java国际化
 
 （1）Java自身是支持国际化的，java.util.Locale用于指定当前用户所属的语言环境等信息，java.util.ResourceBundle用于查找绑定对应的资源文件。Locale包含了language信息和country信息，Locale创建默认locale对象时使用的静态方法：
@@ -5850,7 +5858,7 @@ ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:bean*.xm
 
 **第二步 在resource目录下创建两个配置文件：messages_zh_CN.propertes和messages_en_GB.propertes**
 
-![image-20221207124839565](http://cdn.this0.com/blog/img/image-20221207124839565.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=tRqw9N1naX5zOwcP5Vo8mUTy0+M=&x-oss-process=style/cdn.this0)
+![image-20221207124839565](http://cdn.this0.com/blog/img/image-20221207124839565.png)
 
 **第三步 测试**
 
@@ -5905,7 +5913,7 @@ spring中国际化是通过MessageSource这个接口来支持的
 
 **{0},{1}这样内容，就是动态参数**
 
-![image-20221207140024056](http://cdn.this0.com/blog/img/image-20221207140024056.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=YB8DU+c5vv83IXWZwEeKH3cMNbg=&x-oss-process=style/cdn.this0)
+![image-20221207140024056](http://cdn.this0.com/blog/img/image-20221207140024056.png)
 
 **（1）创建atguigu_en_US.properties**
 
@@ -6482,7 +6490,7 @@ AOT 编译能直接将源代码转化为机器码，内存占用低，启动速�
 .java -> .class -> (使用jaotc编译工具) -> .so（程序函数库,即编译好的可以供其他程序使用的代码和数据）
 ```
 
-![image-20221207113544080](http://cdn.this0.com/blog/img/image-20221207113544080.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=Kft887ct5c8R9LgHo/+Sivx10do=&x-oss-process=style/cdn.this0)
+![image-20221207113544080](http://cdn.this0.com/blog/img/image-20221207113544080.png)
 
 **（3）AOT的优点**
 
@@ -6557,7 +6565,7 @@ Native Image 是一项创新技术，可将 Java 代码编译成独立的本机�
 
 **使用命令查看是否安装成功**
 
-![image-20221207153642253](http://cdn.this0.com/blog/img/image-20221207153642253.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=+jbaDuzUompE+wMHY63ZIy2cPU8=&x-oss-process=style/cdn.this0)
+![image-20221207153642253](http://cdn.this0.com/blog/img/image-20221207153642253.png)
 
 ##### （3）安装native-image插件
 
