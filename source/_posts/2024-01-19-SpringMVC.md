@@ -88,9 +88,9 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
 
 **SpringMVC处理请求流程：**
 
-![](http://cdn.this0.com/blog/img/image_tmdw8dA_0q.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=+cCmFefGmyNFtHZtuFY26lfcs8k=&x-oss-process=style/cdn.this0)
+![](http://cdn.this0.com/blog/img/image_tmdw8dA_0q.png)
 
-**SpringMVC涉及组件理解：**
+**SpringMVC涉及组件理解：//TODO**
 
 1.  DispatcherServlet :  SpringMVC提供，我们需要使用web.xml配置使其生效，它是整个流程处理的核心，所有请求都经过它的处理和分发！\[ CEO ]
 2.  HandlerMapping :  SpringMVC提供，我们需要进行IoC配置使其加入IoC容器方可生效，它内部缓存handler(controller方法)和handler访问路径数据，被DispatcherServlet调用，用于查找路径对应的handler！\[秘书]
@@ -102,9 +102,9 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
 
 1. 体验场景需求
 
-   ![](http://cdn.this0.com/blog/img/image_JrHCHOxu_n.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=cbezWcT2J++xivpajYnMa2XR280=&x-oss-process=style/cdn.this0)
+   ![](http://cdn.this0.com/blog/img/image_JrHCHOxu_n.png)
 
-2. 配置分析
+2. 配置分析//TODO
 
    1.  DispatcherServlet，设置处理所有请求！
    2.  HandlerMapping,HandlerAdapter,Handler需要加入到IoC容器，供DS调用！
@@ -164,6 +164,8 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
 
 4. Controller声明
 
+   `handler就是controller内部的具体方法`
+
    ```java
    @Controller
    public class HelloController {
@@ -186,6 +188,8 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
    ```
 
 5. Spring MVC核心组件配置类
+
+   可以不在配置类里添加RequestMappingHandlerMapping和RequestMappingHandlerAdapter,springmvc会检查是否配置handlerMapping和handlerAdapter,没有配置默认加载
 
    > 声明springmvc涉及组件信息的配置类
 
@@ -218,12 +222,16 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
 
 6. SpringMVC环境搭建
 
-   > 对于使用基于 Java 的 Spring 配置的应用程序，建议这样做，如以下示例所示：
+   //TODO，替代web.xml
 
-   ```java
    //TODO: SpringMVC提供的接口,是替代web.xml的方案,更方便实现完全注解方式ssm处理!
    //TODO: Springmvc框架会自动检查当前类的实现类,会自动加载 getRootConfigClasses / getServletConfigClasses 提供的配置类
    //TODO: getServletMappings 返回的地址 设置DispatherServlet对应处理的地址
+
+   > 对于使用基于 Java 的 Spring 配置的应用程序，建议这样做，如以下示例所示：
+
+   ```java
+   
    public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
    
      /**
@@ -253,6 +261,8 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
      }
    }
    ```
+
+   //TODO，这个不用注入，是因为WebApplicationInitializer这个初始化类的关系
 
 7. 启动测试
 
@@ -359,7 +369,7 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
 
 4. **附带请求方式限制**
 
-   HTTP 协议定义了八种请求方式，在 SpringMVC 中封装到了下面这个枚举类：
+   `HTTP 协议定义了八种请求方式，在 SpringMVC 中封装到了RequestMethod枚举类`：
 
    ```java
    public enum RequestMethod {
@@ -367,7 +377,7 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
    }
    ```
 
-   默认情况下：@RequestMapping("/logout") 任何请求方式都可以访问！
+   `默认情况下：@RequestMapping("/logout") 任何请求方式都可以访问！`
 
    如果需要特定指定：
 
@@ -400,7 +410,7 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
    }
    ```
 
-   注意：违背请求方式，会出现405异常！！！
+   注意：`违背请求方式，会出现405异常！！！`
 
 5. **进阶注解**
 
@@ -422,7 +432,7 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
 
 6. **常见配置问题**
 
-   出现原因：多个 handler 方法映射了同一个地址，导致 SpringMVC 在接收到这个地址的请求时该找哪个 handler 方法处理。
+   出现原因：多个 handler 方法映射了同一个地址，导致 SpringMVC 在接收到这个地址的请求时不知该找哪个 handler 方法处理。
 
    > There is already 'demo03MappingMethodHandler' bean method com.atguigu.mvc.handler.Demo03MappingMethodHandler#empGet() **mapped**.
 
@@ -434,7 +444,7 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
 
 1. 参数编码： &#x20;
 
-   param 类型的参数会被编码为 ASCII 码。例如，假设 `name=john doe`，则会被编码为 `name=john%20doe`。而 JSON 类型的参数会被编码为 UTF-8。
+   `param 类型的参数会被编码为 ASCII 码。`例如，假设 `name=john doe`，则会被编码为 `name=john%20doe`。`而 JSON 类型的参数会被编码为 UTF-8。`
 
 2. 参数顺序： &#x20;
 
@@ -442,11 +452,11 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
 
 3. 数据类型： &#x20;
 
-   param 类型的参数仅支持字符串类型、数值类型和布尔类型等简单数据类型。而 JSON 类型的参数则支持更复杂的数据类型，如数组、对象等。
+   `param 类型的参数仅支持字符串类型、数值类型和布尔类型等简单数据类型。而 JSON 类型的参数则支持更复杂的数据类型，如数组、对象等。`
 
 4. 嵌套性： &#x20;
 
-   param 类型的参数不支持嵌套。但是，JSON 类型的参数支持嵌套，可以传递更为复杂的数据结构。
+   `param 类型的参数不支持嵌套。但是，JSON 类型的参数支持嵌套，可以传递更为复杂的数据结构。`
 
 5. 可读性： &#x20;
 
@@ -460,26 +470,25 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
 
    客户端请求
 
-   ![](http://cdn.this0.com/blog/img/image_3SOeT8tvvW.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=S3u590++Bdc8qTLtg4XPHY/2Dlo=&x-oss-process=style/cdn.this0)
+   ![](http://cdn.this0.com/blog/img/image_3SOeT8tvvW.png)
 
    handler接收参数
 
-   只要形参数名和类型与传递参数相同，即可自动接收!
+   `只要形参参数名和类型与传递参数相同，即可自动接收!`
+
+   前端请求: http://localhost:8080/param/value?name=xx&age=18
+
+
+        * 可以利用形参列表,直接接收前端传递的param参数!
+             *    要求: 参数名 = 形参名
+             *          类型相同  
 
    ```java
    @Controller
    @RequestMapping("param")
    public class ParamController {
    
-       /**
-        * 前端请求: http://localhost:8080/param/value?name=xx&age=18
-        *
-        * 可以利用形参列表,直接接收前端传递的param参数!
-        *    要求: 参数名 = 形参名
-        *          类型相同
-        * 出现乱码正常，json接收具体解决！！
-        * @return 返回前端数据
-        */
+       
        @GetMapping(value="/value")
        @ResponseBody
        public String setupForm(String name,int age){
@@ -489,15 +498,17 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
    }
    ```
 
-2. **@RequestParam注解**
+2. `**@RequestParam注解**`
 
    可以使用 `@RequestParam` 注释将 Servlet 请求参数（即查询参数或表单数据）绑定到控制器中的方法参数。
+
+   `把@RequestParam("")里的参数，绑定到形参`
 
    `@RequestParam`使用场景：
 
    -   指定绑定的请求参数名
-   -   要求请求参数必须传递
-   -   为请求参数提供默认值
+   -   `要求请求参数必须传递`
+   -   `为请求参数提供默认值`
        基本用法：
 
    ```java
@@ -516,11 +527,11 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
    }
    ```
 
-   默认情况下，使用此批注的方法参数是必需的，但您可以通过将 `@RequestParam` 批注的 `required` 标志设置为 `false`！
+   `//TODO默认情况下，使用此批注的方法参数是必需的，`但您可以通过将 `@RequestParam` 批注的 `required` 标志设置为 `false`！
 
-   如果没有没有设置非必须，也没有传递参数会出现：
+   `如果没有没有设置非必须，也没有传递参数会出现400错误：`
 
-   ![](http://cdn.this0.com/blog/img/image_vIkYCRMSZL.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=vMlY1QkcKHB86lEe+l0FQEpoth4=&x-oss-process=style/cdn.this0)
+   ![](http://cdn.this0.com/blog/img/image_vIkYCRMSZL.png)
 
    将参数设置非必须，并且设置默认值：
 
@@ -535,9 +546,9 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
    
    ```
 
-3. **特殊场景接值**
+3. **特殊场景接值**//TODO
 
-   1. 一名多值
+   1. `一名多值`
 
       多选框，提交的数据的时候一个key对应多个值，我们可以使用集合进行接收！
 
@@ -589,13 +600,13 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
       }
       ```
 
-      在上述代码中，将请求参数name和age映射到实体类属性上！要求属性名必须等于参数名！否则无法映射！
+      在上述代码中，将`请求参数name和age映射到实体类属性上！要求属性名必须等于参数名`！否则无法映射！
 
       使用postman传递参数测试：
 
-      ![](http://cdn.this0.com/blog/img/image_5BkbhZjtyX.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=fjlpDc+D+/W/eg1rNFKzokIVUjw=&x-oss-process=style/cdn.this0)
+      ![](http://cdn.this0.com/blog/img/image_5BkbhZjtyX.png)
 
-#### 2.2.3 路径 参数接收
+#### 2.2.3 路径参数接收
 
 路径传递参数是一种在 URL 路径中传递参数的方式。在 RESTful 的 Web 应用程序中，经常使用路径传递参数来表示资源的唯一标识符或更复杂的表示方式。而 Spring MVC 框架提供了 `@PathVariable` 注解来处理路径传递参数。
 
@@ -622,7 +633,7 @@ public String getUser(@PathVariable Long id,
 }
 ```
 
-#### 2.2.4 json参数接收
+#### 2.2.4 json参数接收	//TODO，没有postman，后面再看，还有源码
 
 前端传递 JSON 数据时，Spring MVC 框架可以使用 `@RequestBody` 注解来将 JSON 数据转换为 Java 对象。`@RequestBody` 注解表示当前方法参数的值应该从请求体中获取，并且需要指定 value 属性来指示请求体应该映射到哪个参数上。其使用方式和示例代码如下：
 
@@ -665,13 +676,13 @@ public String getUser(@PathVariable Long id,
 
    测试：
 
-   ![](http://cdn.this0.com/blog/img/image_-vKMBKKMSZ.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=afnM9m3n8Kr+b51QG9VU/C21cYI=&x-oss-process=style/cdn.this0)
+   ![](http://cdn.this0.com/blog/img/image_-vKMBKKMSZ.png)
 
    问题：
 
    org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/json;charset=UTF-8' is not supported]
 
-   ![](http://cdn.this0.com/blog/img/image_Kb8Lv29M2o.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=tV6tU0B6b09EZdz6+C1x+wPLQEc=&x-oss-process=style/cdn.this0)
+   ![](http://cdn.this0.com/blog/img/image_Kb8Lv29M2o.png)
 
    原因：
 
@@ -693,19 +704,18 @@ public String getUser(@PathVariable Long id,
    
    //WebMvcConfigurer springMvc进行组件配置的规范,配置组件,提供各种方法! 前期可以实现
    public class SpringMvcConfig implements WebMvcConfigurer {
+       }
    ```
 
-
-    }
-    ```
-    pom.xml 加入jackson依赖
-    ```xml
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.15.0</version>
-    </dependency>
-    ```
+```
+pom.xml 加入jackson依赖
+```xml
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.15.0</version>
+</dependency>
+```
 
 5. @EnableWebMvc注解说明
 
@@ -779,7 +789,7 @@ public String getUser(@PathVariable Long id,
     
         ```
 
-### 2.3 接收Cookie数据
+### 2.3 接收Cookie数据	//TODO
 
 可以使用 `@CookieValue` 注释将 HTTP Cookie 的值绑定到控制器中的方法参数。
 
@@ -798,7 +808,7 @@ public void handle(@CookieValue("JSESSIONID") String cookie) {
 }
 ```
 
-### 2.4 接收请求头数据
+### 2.4 接收请求头数据	//TODO
 
 可以使用 `@RequestHeader` 批注将请求标头绑定到控制器中的方法参数。
 
@@ -824,7 +834,7 @@ public void handle(
 }
 ```
 
-### 2.5 原生Api对象操作
+### 2.5 原生Api对象操作//TODO
 
 <https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/arguments.html>
 
@@ -861,9 +871,9 @@ public String api(HttpSession session , HttpServletRequest request,
 }
 ```
 
-### 2.6 共享域对象操作
+### 2.6 共享域对象操作 //TODO看累了，后面看
 
-#### 2.6.1 属性（共享）域作用回顾
+#### 2.6.1 属性（共享）域作用回顾//javaweb阶段学的
 
 在 JavaWeb 中，共享域指的是在 Servlet 中存储数据，以便在同一 Web 应用程序的多个组件中进行共享和访问。常见的共享域有四种：`ServletContext`、`HttpSession`、`HttpServletRequest`、`PageContext`。
 
@@ -874,7 +884,7 @@ public String api(HttpSession session , HttpServletRequest request,
 
 共享域的作用是提供了方便实用的方式在同一 Web 应用程序的多个组件之间传递数据，并且可以将数据保存在不同的共享域中，根据需要进行选择和使用。
 
-![](http://cdn.this0.com/blog/img/img010_VQ5ta0PT96.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=g+SR3ZJgFqcEUBRUKtWBtQQFVys=&x-oss-process=style/cdn.this0)
+![](http://cdn.this0.com/blog/img/img010_VQ5ta0PT96.png)
 
 #### 2.6.2 Request级别属性（共享）域
 
@@ -996,7 +1006,7 @@ public String attrApplication() {
 
 ## 三、SpringMVC响应数据
 
-### 3.1 handler方法分析
+### 3.1 handler方法分析	//TODO
 
 理解handler方法的作用和组成：
 
@@ -1029,7 +1039,7 @@ public Object handler(简化请求参数接收){
 
 ### 3.2 页面跳转控制
 
-#### 3.2.1 快速返回模板视图
+#### 3.2.1 快速返回模板视图	//TODO
 
 1. 开发模式回顾
 
@@ -1213,7 +1223,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
    }
    ```
 
-   具体来说，`@ResponseBody` 注解可以用来标识方法或者方法返回值，表示方法的返回值是要直接返回给客户端的数据，而不是由视图解析器来解析并渲染生成响应体（viewResolver没用）。
+   具体来说，`@ResponseBody` 注解可以用来标识方法或者方法返回值，表示方法的返回值是要直接返回给客户端的数据，而不是由视图解析器来解析并渲染生成响应体（`viewResolver没用//TODO`）。		意思是不是跳转视图
 
    测试方法：
 
@@ -1236,7 +1246,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 
 2. 类上使用@ResponseBody
 
-   如果类中每个方法上都标记了 @ResponseBody 注解，那么这些注解就可以提取到类上。
+   `如果类中每个方法上都标记了 @ResponseBody 注解，那么这些注解就可以提取到类上。`
 
    ```java
    @ResponseBody  //responseBody可以添加到类上,代表默认类中的所有方法都生效!
@@ -1247,7 +1257,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 
 #### 3.3.3 @RestController
 
-类上的 @ResponseBody 注解可以和 @Controller 注解合并为 @RestController 注解。所以使用了 @RestController 注解就相当于给类中的每个方法都加了 @ResponseBody 注解。
+`类上的 @ResponseBody 注解可以和 @Controller 注解合并为 @RestController 注解。`所以使用了 @RestController 注解就相当于给类中的每个方法都加了 @ResponseBody 注解。
 
 RestController源码:
 
@@ -1271,7 +1281,7 @@ public @interface RestController {
 }
 ```
 
-### 3.4 返回静态资源处理
+### 3.4 返回静态资源处理	//TODO用的少，先不看
 
 1. **静态资源概念**
 
@@ -1287,7 +1297,7 @@ public @interface RestController {
 
    - web应用加入静态资源
 
-     ![](http://cdn.this0.com/blog/img/image_4ZDfBKo7ze.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=FR68+z36rH/w7OKUAMfQBhbo41k=&x-oss-process=style/cdn.this0)
+     ![](http://cdn.this0.com/blog/img/image_4ZDfBKo7ze.png)
 
    - 手动构建确保编译
 
@@ -1299,7 +1309,7 @@ public @interface RestController {
 
    - 访问静态资源
 
-     ![](http://cdn.this0.com/blog/img/image_k7bhHrwvx1.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=Zz18EtlgB+wEENyh72sTMpeDsPg=&x-oss-process=style/cdn.this0)
+     ![](http://cdn.this0.com/blog/img/image_k7bhHrwvx1.png)
 
    - 问题分析
 
@@ -1348,7 +1358,7 @@ public @interface RestController {
      @EnableWebMvc  //json数据处理,必须使用此注解,因为他会加入json处理器
      ```
 
-## 四、RESTFul风格设计和实战
+## 四、RESTFul风格设计和实战	//TODO留一下
 
 ### 4.1 RESTFul风格概述
 
@@ -1369,9 +1379,9 @@ RESTful（Representational State Transfer）是一种软件架构风格，用于
 #### 4.1.2 RESTFul风格特点
 
 1.  每一个URI代表1种资源（URI 是名词）；
-2.  客户端使用GET、POST、PUT、DELETE 4个表示操作方式的动词对服务端资源进行操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源；
+2.  `客户端使用GET、POST、PUT、DELETE 4个表示操作方式的动词对服务端资源进行操作`：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源；
 3.  资源的表现形式是XML或者**JSON**；
-4.  客户端与服务端之间的交互在请求之间是无状态的，从客户端到服务端的每个请求都必须包含理解请求所必需的信息。
+4.  客户端与服务端之间的交互在请求之间是`无状态`的，从客户端到服务端的每个请求都必须包含理解请求所必需的信息。
 
 #### 4.1.3 **RESTFul风格设计规范**
 
@@ -1626,7 +1636,7 @@ public class UserController {
 
 使用声明式异常处理，可以统一项目处理异常思路，项目更加清晰明了！
 
-#### 5.1.2 基于注解异常声明异常处理
+#### 5.1.2 `基于注解异常声明异常处理`	//项目中做过
 
 1. 声明异常处理控制器类
 
@@ -1654,7 +1664,7 @@ public class UserController {
 
    异常处理handler方法和普通的handler方法参数接收和响应都一致！
 
-   只不过异常处理handler方法要映射异常，发生对应的异常会调用！
+   只不过`异常处理handler方法要映射异常，发生对应的异常会调用！`
 
    普通的handler方法要使用@RequestMapping注解映射路径，发生对应的路径调用！
 
@@ -1720,15 +1730,15 @@ public class UserController {
 
   为了提高乘车效率，在乘客进入站台前统一检票
 
-  ![](http://cdn.this0.com/blog/img/img008_uQA2iP6_5n.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=LL0p6TtTVFmf+BakDAOzOv3BpGY=&x-oss-process=style/cdn.this0)
+  ![](http://cdn.this0.com/blog/img/img008_uQA2iP6_5n.png)
 
 - 程序中
 
-  在程序中，使用拦截器在请求到达具体 handler 方法前，统一执行检测
+  在程序中，`使用拦截器在请求到达具体 handler 方法前，统一执行检测`
 
-  ![](http://cdn.this0.com/blog/img/img009_aXz6GsRSMQ.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=I+dO/MzHxSr3tEw8+R7kytt9gQs=&x-oss-process=style/cdn.this0)
+  ![](http://cdn.this0.com/blog/img/img009_aXz6GsRSMQ.png)
 
-拦截器 Springmvc VS 过滤器 javaWeb：
+拦截器 Springmvc VS 过滤器 javaWeb：	//TODO
 
 -   相似点
     -   拦截：必须先把请求拦住，才能执行后续操作
@@ -1884,7 +1894,7 @@ public class UserController {
    2.  postHandle() 方法：SpringMVC 会把所有拦截器收集到一起，然后按照配置相反的顺序调用各个 postHandle() 方法。
    3.  afterCompletion() 方法：SpringMVC 会把所有拦截器收集到一起，然后按照配置相反的顺序调用各个 afterCompletion() 方法。
 
-### 5.3 参数校验
+### 5.3 参数校验	//TODO，多次出现了
 
 > 在 Web 应用三层架构体系中，表述层负责接收浏览器提交的数据，业务逻辑层负责数据的处理。为了能够让业务逻辑层基于正确的数据进行处理，我们需要在表述层对数据进行检查，将错误的数据隔绝在业务逻辑层之外。
 
