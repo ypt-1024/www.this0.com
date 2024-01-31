@@ -160,7 +160,7 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 baidu_url_submit:
-   count: 10  # 比如200，代表提交最新的200个链接
+   count: 1  # 比如200，代表提交最新的200个链接
    host: www.this0.com # 在百度站长平台中注册的域名
    token: bS5KfnEmO6uzKTZe # 百度站长密钥
    path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里，这个默认
