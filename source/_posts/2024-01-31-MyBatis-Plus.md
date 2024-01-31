@@ -1,9 +1,10 @@
 ---
 title: MyBatis-Plus
 tags:
-  - null
+  - MyBatis-Plus
 categories:
-  - null
+  - MyBatis-Plus
+abbrlink: 1276cc28
 date: 2024-01-31 17:32:51
 description:
 ---
