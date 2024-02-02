@@ -6,6 +6,7 @@ tags:
   - 服务器运维
 categories:
   - 服务器运维
+abbrlink: ee432f4
 date: 2024-02-01 06:46:48
 description:
 ---
@@ -14,25 +15,15 @@ description:
 
 docker pull mysql:5.7
 
-### 2 容器启动
+### 2 添加mysql配置文件
+
+新建配置文件存放目录
 
 ```
-docker run -p 10241:3306 --name mysql \
-
--v /usr/local/SDK_YPT/mysql/log:/var/log/mysql \
-
--v /usr/local/SDK_YPT/mysql/data:/var/lib/mysql \
-
--v /usr/local/SDK_YPT/mysql/conf:/etc/mysql/conf.d \
-
--e MYSQL_ROOT_PASSWORD=Ypt1024mysql \
-
--d mysql:5.7
+mkdir -p /usr/local/SDK_YPT/mysql/conf
 ```
 
-### 3 添加mysql配置文件
-
-进入Linux 中，在自己指定的mysql配置文件路径下，新建配置文件 my.cnf， 拷贝以下内容
+新建配置文件 my.cnf， 拷贝以下内容
 
 ```
 [client]
@@ -45,6 +36,24 @@ default-character-set=utf8mb4
 init_connect='SET NAMES utf8mb4'
 character-set-server=utf8mb4
 collation-server=utf8mb4_unicode_ci
+```
+
+### 3 容器启动
+
+*`映射文件目录里不要有以前的数据库残留文件`
+
+```
+docker run -p 服务器映射端口:3306 --name mysql \
+
+-v /usr/local/SDK_YPT/mysql/log:/var/log/mysql \
+
+-v /usr/local/SDK_YPT/mysql/data:/var/lib/mysql \
+
+-v /usr/local/SDK_YPT/mysql/conf:/etc/mysql/conf.d \
+
+-e MYSQL_ROOT_PASSWORD=密码 \
+
+-d mysql:5.7
 ```
 
 ### 4 设置mysql自启
@@ -66,3 +75,17 @@ SHOW VARIABLES LIKE 'character%'
 ```
 
 ![image-20240201072817525](http://cdn.this0.com/blog/img/image-20240201072817525.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=CVgKJOd/rtq1RSvuojBUE7uPAjs=&x-oss-process=style/cdn.this0)
+
+### 6 授予远程访问权限
+
+```
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '密码' WITH GRANT OPTION;
+```
+
+远程登陆测试
+
+```
+mysql -h  你的主机ip -P mysql端口号 -u root -p
+```
+
+![image-20240201210723229](http://cdn.this0.com/blog/img/image-20240201210723229.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=sG3mZWSaLhza0FDCyw4TsKBx4Rk=&x-oss-process=style/cdn.this0)

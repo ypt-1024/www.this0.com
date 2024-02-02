@@ -999,7 +999,7 @@ public void testQuick2(){
 
    特殊情况：如果表名和实体类名相同（忽略大小写）可以省略该注解！
 
-   其他解决方案：全局设置前缀 ([https://www.baomidou.com/pages/56bac0/#基本配置](https://www.baomidou.com/pages/56bac0/#基本配置 "https://www.baomidou.com/pages/56bac0/#基本配置"))
+   其他解决方案：全局设置前缀 ([https://www.baomidou.com/pages/56bac0/#基本配置](https://www.baomidou.com/pages/56bac0/#基本配置 "https://www.baomidou.com/pages/56bac0/#基本配置"))	//TODO
 
    ```yaml
    mybatis-plus: # mybatis-plus的配置
