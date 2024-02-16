@@ -1589,7 +1589,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         </select>
         ```
 
-### 4.3 头条模块开发
+### 4.3 头条模块开发	//TODO这里没做
 
 - \*\*3.1 登陆验证和保护 \*\*
 
@@ -1780,6 +1780,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
          */
         @Override
         public Result publish(Headline headline) {
+            //TODO日期时间类看一下
             headline.setCreateTime(new Date());
             headline.setUpdateTime(new Date());
             headline.setPageViews(0);
@@ -1792,7 +1793,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/image_L870gB_yYk.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=KPIYwU+ayWwMlTqGnbx8uAt9vog=&x-oss-process=style/cdn.this0)
+     ![](http://cdn.this0.com/blog/img/image_L870gB_yYk.png)
 
      -   前端先调用登录校验接口,校验登录是否过期
      -   登录校验通过后 ,则根据新闻id查询新闻的完整信息并响应给前端
