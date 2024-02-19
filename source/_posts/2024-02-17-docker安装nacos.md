@@ -1,9 +1,12 @@
 ---
 title: docker安装nacos
 tags:
-  - null
+  - Docker
+  - nacos
+  - 服务器运维
 categories:
-  - null
+  - 服务器运维
+abbrlink: b2cc0cbb
 date: 2024-02-17 02:53:13
 description:
 ---
