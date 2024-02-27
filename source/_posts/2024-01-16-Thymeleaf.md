@@ -14,7 +14,7 @@ date: 2024-01-16 23:30:17
 description:
 ---
 
-### Thmeleaf //新版javaweb已经删了
+### Thmeleaf
 
 ### 1. 内容讲解
 
@@ -93,8 +93,6 @@ Thymeleaf是一款用于渲染XML/XHTML/HTML5内容的模板引擎。类似JSP�
 路径的结尾都是：.html
 
 所以，路径开头的部分我们称之为<span style="color:blue;font-weight:bold;">视图前缀</span>，路径结尾的部分我们称之为<span style="color:blue;font-weight:bold;">视图后缀</span>。
-
-
 
 ###### ② 逻辑视图
 
