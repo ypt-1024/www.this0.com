@@ -10,7 +10,9 @@ date: 2024-01-19 04:58:33
 description:
 ---
 
-# SpringMVC实战：构建高效表述层框架
+# SpringMVC
+
+这部分的代码在我的[SSM仓库](https://github.com/baifengxiao/SSM.git)：
 
 ## 一、SpringMVC简介和体验
 
@@ -58,7 +60,7 @@ public String login(@RequestParam("userName") String userName,Sting password){
 
 SSM框架构建起单体项目的技术栈需求！其中的SpringMVC负责表述层（控制层）实现简化！
 
-SpringMVC的作用主要覆盖的是表述层，例如：
+SpringMVC的作用主要覆盖的是`表述层`，例如：
 
 -   请求映射
 -   数据输入
@@ -76,13 +78,13 @@ SpringMVC的作用主要覆盖的是表述层，例如：
 
 **最终总结：**
 
-1.  简化前端参数接收( 形参列表 )
-2.  简化后端数据响应(返回值)
+1.  简化`前端参数接收`( 形参列表 )
+2.  简化`后端数据响应`(返回值)
 3.  以及其他......
 
 ### 1.3 核心组件和调用流程理解
 
-Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计的，其中中央 `Servlet`  `DispatcherServlet` 做整体请求处理调度！
+Spring MVC与许多其他Web框架一样，是围绕`前端控制器模式`设计的，其中中央 `Servlet`  `DispatcherServlet` 做整体请求处理调度！
 
 除了`DispatcherServlet`SpringMVC还会提供其他特殊的组件协作完成请求处理和响应呈现。
 
@@ -90,9 +92,9 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
 
 ![](http://cdn.this0.com/blog/img/image_tmdw8dA_0q.png)
 
-**SpringMVC涉及组件理解：//TODO**
+**SpringMVC涉及组件理解：**
 
-1.  DispatcherServlet :  SpringMVC提供，我们需要使用web.xml配置使其生效，它是整个流程处理的核心，所有请求都经过它的处理和分发！\[ CEO ]
+1.  DispatcherServlet :  SpringMVC提供，我们需要使用web.xml配置使其生效，它是整个流程处理的核心，`所有请求都经过它的处理和分发`！\[ CEO ]
 2.  HandlerMapping :  SpringMVC提供，我们需要进行IoC配置使其加入IoC容器方可生效，它内部缓存handler(controller方法)和handler访问路径数据，被DispatcherServlet调用，用于查找路径对应的handler！\[秘书]
 3.  HandlerAdapter : SpringMVC提供，我们需要进行IoC配置使其加入IoC容器方可生效，它可以处理请求参数和处理响应数据数据，每次DispatcherServlet都是通过handlerAdapter间接调用handler，他是handler和DispatcherServlet之间的适配器！\[经理]
 4.  Handler : handler又称处理器，他是Controller类内部的方法简称，是由我们自己定义，用来接收参数，向后调用业务，最终返回响应结果！\[打工人]
@@ -164,7 +166,7 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
 
 4. Controller声明
 
-   `handler就是controller内部的具体方法`
+   `RequestMappingHandlerMapping 就是springmvc提供的组件,支持@RequestMapping方式注册的handler,handler就是controller内部的具体方法`,//TODO
 
    ```java
    @Controller
@@ -189,21 +191,23 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
 
 5. Spring MVC核心组件配置类
 
-   可以不在配置类里添加RequestMappingHandlerMapping和RequestMappingHandlerAdapter,springmvc会检查是否配置handlerMapping和handlerAdapter,没有配置默认加载
+   可以不在配置类里添加`RequestMappingHandlerMapping`和`RequestMappingHandlerAdapter`,springmvc会检查是否配置handlerMapping和handlerAdapter,没有配置默认加载spring-webmvc包下的配置DispatcherServlet.properties下的组件!
 
    > 声明springmvc涉及组件信息的配置类
 
    ```java
-   //TODO: SpringMVC对应组件的配置类 [声明SpringMVC需要的组件信息]
+   //SpringMVC对应组件的配置类 [声明SpringMVC需要的组件信息]
    
    //TODO: 导入handlerMapping和handlerAdapter的三种方式
-    //1.自动导入handlerMapping和handlerAdapter [推荐]
-    //2.可以不添加,springmvc会检查是否配置handlerMapping和handlerAdapter,没有配置默认加载
-    //3.使用@Bean方式配置handlerMapper和handlerAdapter
+   //1.自动导入handlerMapping和handlerAdapter [推荐]
+   //2.手动添加,使用@Bean方式配置handlerMapper和handlerAdapter
+   //3.可以不添加,springmvc会检查是否配置handlerMapping和handlerAdapter,没有配置默认加载
+    
    @EnableWebMvc     
    @Configuration
-   @ComponentScan(basePackages = "com.atguigu.controller") //TODO: 进行controller扫
-   //WebMvcConfigurer springMvc进行组件配置的规范,配置组件,提供各种方法! 前期可以实现
+   @ImportResource("classpath:spring-mvc.xml")	//TODO指定配置文件路径
+   @ComponentScan(basePackages = "com.atguigu.controller")
+   //WebMvcConfigurer springMvc进行组件配置的规范,配置组件,提供各种方法! 
    public class SpringMvcConfig implements WebMvcConfigurer {
    
        @Bean
@@ -220,11 +224,31 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
    
    ```
 
+   或者 在配置文件中配置//TODO
+
+   ```xml
+   <!-- 配置SpringMVC中负责处理请求的核心Servlet，也被称为SpringMVC的前端控制器 -->
+   <servlet>
+       <servlet-name>DispatcherServlet</servlet-name>
+       <!-- DispatcherServlet的全类名 -->
+       <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+   
+       <!-- 作为框架的核心组件，在启动过程中有大量的初始化操作要做，这些操作放在第一次请求时才执行非常不恰当 -->
+       <!-- 值为100表示在Web应用启动时就加载这个Servlet -->
+       <load-on-startup>100</load-on-startup>
+   
+   </servlet>
+   
+   <servlet-mapping>
+       <servlet-name>DispatcherServlet</servlet-name>
+       <!-- 对DispatcherServlet来说，url-pattern有两种方式配置 -->
+       <!-- 配置“/”，表示匹配整个Web应用范围内所有请求。这里有一个硬性规定：不能写成“/*”。
+         只有这一个地方有这个特殊要求，以后我们再配置Filter还是可以正常写“/*”。 -->
+       <url-pattern>/</url-pattern>
+   </servlet-mapping>
+   ```
+
 6. SpringMVC环境搭建
-
-   //TODO，替代web.xml
-
-   //TODO: SpringMVC提供的接口,是替代web.xml的方案,更方便实现完全注解方式ssm处理!
    //TODO: Springmvc框架会自动检查当前类的实现类,会自动加载 getRootConfigClasses / getServletConfigClasses 提供的配置类
    //TODO: getServletMappings 返回的地址 设置DispatherServlet对应处理的地址
 
@@ -235,7 +259,7 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
    public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
    
      /**
-      * 指定service / mapper层的配置类
+      * 指定根配置类
       */
      @Override
      protected Class<?>[] getRootConfigClasses() {
@@ -262,7 +286,9 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
    }
    ```
 
-   //TODO，这个不用注入，是因为WebApplicationInitializer这个初始化类的关系
+   //TODO，这个不用加注解进行注入，是因为WebApplicationInitializer这个初始化类的关系
+
+   ![image-20240304022823550](http://cdn.this0.com/blog/img/image-20240304022823550.png)
 
 7. 启动测试
 
@@ -278,7 +304,7 @@ Spring MVC与许多其他Web框架一样，是围绕前端控制器模式设计�
 
 SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的方法来处理这个请求。
 
-1. **精准路径匹配**
+#### 1 精准路径匹配
 
    在@RequestMapping注解指定 URL 地址时，不使用任何通配符，按照请求地址进行精确匹配。
 
@@ -310,131 +336,131 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
    
    ```
 
-2. **模糊路径匹配**
+#### 2 **模糊路径匹配**
 
-   在@RequestMapping注解指定 URL 地址时，通过使用通配符，匹配多个类似的地址。
+在@RequestMapping注解指定 URL 地址时，通过使用通配符，匹配多个类似的地址。
 
-   ```java
-   @Controller
-   public class ProductController {
-   
-       /**
-        *  路径设置为 /product/*  
-        *    /* 为单层任意字符串  /product/a  /product/aaa 可以访问此handler  
-        *    /product/a/a 不可以
-        *  路径设置为 /product/** 
-        *   /** 为任意层任意字符串  /product/a  /product/aaa 可以访问此handler  
-        *   /product/a/a 也可以访问
-        */
-       @RequestMapping("/product/*")
-       @ResponseBody
-       public String show(){
-           System.out.println("ProductController.show");
-           return "product show!";
-       }
-   }
-   
-   ```
+```java
+@Controller
+public class ProductController {
 
-   ```text
-   单层匹配和多层匹配：
-     /*：只能匹配URL地址中的一层，如果想准确匹配两层，那么就写“/*/*”以此类推。
-     /**：可以匹配URL地址中的多层。
-   其中所谓的一层或多层是指一个URL地址字符串被“/”划分出来的各个层次
-   这个知识点虽然对于@RequestMapping注解来说实用性不大，但是将来配置拦截器的时候也遵循这个规则。
-   ```
+    /**
+     *  路径设置为 /product/*  
+     *    /* 为单层任意字符串  /product/a  /product/aaa 可以访问此handler  
+     *    /product/a/a 不可以
+     *  路径设置为 /product/** 
+     *   /** 为任意层任意字符串  /product/a  /product/aaa 可以访问此handler  
+     *   /product/a/a 也可以访问
+     */
+    @RequestMapping("/product/*")
+    @ResponseBody
+    public String show(){
+        System.out.println("ProductController.show");
+        return "product show!";
+    }
+}
 
-3. **类和方法级别区别**
+```
 
-   `@RequestMapping` 注解可以用于类级别和方法级别，它们之间的区别如下：
+```text
+单层匹配和多层匹配：
+  /*：只能匹配URL地址中的一层，如果想准确匹配两层，那么就写“/*/*”以此类推。
+  /**：可以匹配URL地址中的多层。
+其中所谓的一层或多层是指一个URL地址字符串被“/”划分出来的各个层次
+这个知识点虽然对于@RequestMapping注解来说实用性不大，但是将来配置拦截器的时候也遵循这个规则。
+```
 
-   1.  设置到类级别：`@RequestMapping` 注解可以设置在控制器类上，用于映射整个控制器的通用请求路径。这样，如果控制器中的多个方法都需要映射同一请求路径，就不需要在每个方法上都添加映射路径。
-   2.  设置到方法级别：`@RequestMapping` 注解也可以单独设置在控制器方法上，用于更细粒度地映射请求路径和处理方法。当多个方法处理同一个路径的不同操作时，可以使用方法级别的 `@RequestMapping` 注解进行更精细的映射。
+#### 3 **类和方法级别区别**
 
-   ```java
-   //1.标记到handler方法
-   @RequestMapping("/user/login")
-   @RequestMapping("/user/register")
-   @RequestMapping("/user/logout")
-   
-   //2.优化标记类+handler方法
-   //类上
-   @RequestMapping("/user")
-   //handler方法上
-   @RequestMapping("/login")
-   @RequestMapping("/register")
-   @RequestMapping("/logout")
-   
-   ```
+`@RequestMapping` 注解可以用于类级别和方法级别，它们之间的区别如下：
 
-4. **附带请求方式限制**
+1.  设置到类级别：`@RequestMapping` 注解可以设置在控制器类上，用于映射整个控制器的通用请求路径。这样，如果控制器中的多个方法都需要映射同一请求路径，就不需要在每个方法上都添加映射路径。
+2.  设置到方法级别：`@RequestMapping` 注解也可以单独设置在控制器方法上，用于更细粒度地映射请求路径和处理方法。当多个方法处理同一个路径的不同操作时，可以使用方法级别的 `@RequestMapping` 注解进行更精细的映射。
 
-   `HTTP 协议定义了八种请求方式，在 SpringMVC 中封装到了RequestMethod枚举类`：
+```java
+//1.标记到handler方法
+@RequestMapping("/user/login")
+@RequestMapping("/user/register")
+@RequestMapping("/user/logout")
 
-   ```java
-   public enum RequestMethod {
-     GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
-   }
-   ```
+//2.优化标记类+handler方法
+//类上
+@RequestMapping("/user")
+//handler方法上
+@RequestMapping("/login")
+@RequestMapping("/register")
+@RequestMapping("/logout")
 
-   `默认情况下：@RequestMapping("/logout") 任何请求方式都可以访问！`
+```
 
-   如果需要特定指定：
+#### 4 **附带请求方式限制**
 
-   ```java
-   @Controller
-   public class UserController {
-   
-       /**
-        * 精准设置访问地址 /user/login
-        * method = RequestMethod.POST 可以指定单个或者多个请求方式!
-        * 注意:违背请求方式会出现405异常!
-        */
-       @RequestMapping(value = {"/user/login"} , method = RequestMethod.POST)
-       @ResponseBody
-       public String login(){
-           System.out.println("UserController.login");
-           return "login success!!";
-       }
-   
-       /**
-        * 精准设置访问地址 /user/register
-        */
-       @RequestMapping(value = {"/user/register"},method = {RequestMethod.POST,RequestMethod.GET})
-       @ResponseBody
-       public String register(){
-           System.out.println("UserController.register");
-           return "register success!!";
-       }
-   
-   }
-   ```
+//TODO`HTTP 协议定义了八种请求方式，在 SpringMVC 中封装到了RequestMethod枚举类`：
 
-   注意：`违背请求方式，会出现405异常！！！`
+```java
+public enum RequestMethod {
+  GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE
+}
+```
 
-5. **进阶注解**
+`默认情况下：@RequestMapping("/logout") 任何请求方式都可以访问！`
 
-   还有 `@RequestMapping` 的 HTTP 方法特定快捷方式变体：
+如果需要特定指定：
 
-   -   `@GetMapping`
-   -   `@PostMapping`
-   -   `@PutMapping`
-   -   `@DeleteMapping`
-   -   `@PatchMapping`
+```java
+@Controller
+public class UserController {
 
-   ```java
-   @RequestMapping(value="/login",method=RequestMethod.GET)
-   ||
-   @GetMapping(value="/login")
-   ```
+    /**
+     * 精准设置访问地址 /user/login
+     * method = RequestMethod.POST 可以指定单个或者多个请求方式!
+     * 注意:违背请求方式会出现405异常!
+     */
+    @RequestMapping(value = {"/user/login"} , method = RequestMethod.POST)
+    @ResponseBody
+    public String login(){
+        System.out.println("UserController.login");
+        return "login success!!";
+    }
 
-   注意：进阶注解只能添加到handler方法上，无法添加到类上！
+    /**
+     * 精准设置访问地址 /user/register
+     */
+    @RequestMapping(value = {"/user/register"},method = {RequestMethod.POST,RequestMethod.GET})
+    @ResponseBody
+    public String register(){
+        System.out.println("UserController.register");
+        return "register success!!";
+    }
 
-6. **常见配置问题**
+}
+```
 
-   出现原因：多个 handler 方法映射了同一个地址，导致 SpringMVC 在接收到这个地址的请求时不知该找哪个 handler 方法处理。
+注意：`违背请求方式，会出现405异常！！！`
 
-   > There is already 'demo03MappingMethodHandler' bean method com.atguigu.mvc.handler.Demo03MappingMethodHandler#empGet() **mapped**.
+#### 5 **进阶注解**
+
+还有 `@RequestMapping` 的 HTTP 方法特定快捷方式变体：
+
+-   `@GetMapping`
+-   `@PostMapping`
+-   `@PutMapping`
+-   `@DeleteMapping`
+-   `@PatchMapping//TODO`
+
+```java
+@RequestMapping(value="/login",method=RequestMethod.GET)
+||
+@GetMapping(value="/login")
+```
+
+注意：//TODO`进阶注解只能添加到handler方法上，无法添加到类上`！
+
+#### 6 **常见配置问题**
+
+出现原因：多个 handler 方法映射了同一个地址，导致 SpringMVC 在接收到这个地址的请求时不知该找哪个 handler 方法处理。
+
+> There is already 'demo03MappingMethodHandler' bean method com.atguigu.mvc.handler.Demo03MappingMethodHandler#empGet() **mapped**.
 
 ### 2.2 接收参数（重点）
 
@@ -442,13 +468,13 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
 
 在 HTTP 请求中，我们可以选择不同的参数类型，如 param 类型和 JSON 类型。下面对这两种参数类型进行区别和对比：
 
-1. 参数编码： &#x20;
+1. 参数编码//TODO： &#x20;
 
    `param 类型的参数会被编码为 ASCII 码。`例如，假设 `name=john doe`，则会被编码为 `name=john%20doe`。`而 JSON 类型的参数会被编码为 UTF-8。`
 
 2. 参数顺序： &#x20;
 
-   param 类型的参数没有顺序限制。但是，JSON 类型的参数是有序的。JSON 采用键值对的形式进行传递，其中键值对是有序排列的。
+   param 类型的参数没有顺序限制。但是，`JSON 类型的参数是有序的`。JSON 采用键值对的形式进行传递，其中键值对是有序排列的。
 
 3. 数据类型： &#x20;
 
@@ -466,24 +492,22 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
 
 #### 2.2.2 param参数接收
 
-1. **直接接值**
+##### 1 **直接接值**
 
-   客户端请求
+客户端请求
 
-   ![](http://cdn.this0.com/blog/img/image_3SOeT8tvvW.png)
+![](http://cdn.this0.com/blog/img/image_3SOeT8tvvW.png)
 
-   handler接收参数
+handler接收参数
 
-   `只要形参参数名和类型与传递参数相同，即可自动接收!`
+`只要形参参数名和类型与传递参数相同，即可自动接收!`
 
-   前端请求: http://localhost:8080/param/value?name=xx&age=18
-
-
-        * 可以利用形参列表,直接接收前端传递的param参数!
-             *    要求: 参数名 = 形参名
-             *          类型相同  
+前端请求: http://localhost:8080/param/value?name=xx&age=18
 
    ```java
+       * 可以利用形参列表,直接接收前端传递的param参数!
+            *    要求: 参数名 = 形参名
+            *          类型相同  
    @Controller
    @RequestMapping("param")
    public class ParamController {
@@ -498,113 +522,113 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
    }
    ```
 
-2. `**@RequestParam注解**`
+##### 2 `@RequestParam注解`
 
-   可以使用 `@RequestParam` 注释将 Servlet 请求参数（即查询参数或表单数据）绑定到控制器中的方法参数。
+可以使用 `@RequestParam` 注释将 Servlet 请求参数（即查询参数或表单数据）绑定到控制器中的方法参数。
 
-   `把@RequestParam("")里的参数，绑定到形参`
+`把@RequestParam("")里的参数，绑定到形参`
 
-   `@RequestParam`使用场景：
+`@RequestParam`使用场景：
 
-   -   指定绑定的请求参数名
-   -   `要求请求参数必须传递`
-   -   `为请求参数提供默认值`
-       基本用法：
+-   指定绑定的请求参数名
+-   `要求请求参数必须传递`//TODO
+-   `为请求参数提供默认值`  //TODO
+    基本用法：
 
-   ```java
-    /**
-    * 前端请求: http://localhost:8080/param/data?name=xx&stuAge=18
-    * 
-    *  使用@RequestParam注解标记handler方法的形参
-    *  指定形参对应的请求参数@RequestParam(请求参数名称)
-    */
-   @GetMapping(value="/data")
-   @ResponseBody
-   public Object paramForm(@RequestParam("name") String name, 
-                           @RequestParam("stuAge") int age){
-       System.out.println("name = " + name + ", age = " + age);
-       return name+age;
-   }
-   ```
+```java
+ /**
+ * 前端请求: http://localhost:8080/param/data?name=xx&stuAge=18
+ * 
+ *  使用@RequestParam注解标记handler方法的形参
+ *  指定形参对应的请求参数@RequestParam(请求参数名称)
+ */
+@GetMapping(value="/data")
+@ResponseBody
+public Object paramForm(@RequestParam("name") String name, 
+                        @RequestParam("stuAge") int age){
+    System.out.println("name = " + name + ", age = " + age);
+    return name+age;
+}
+```
 
-   `//TODO默认情况下，使用此批注的方法参数是必需的，`但您可以通过将 `@RequestParam` 批注的 `required` 标志设置为 `false`！
+`//TODO默认情况下，使用此批注的方法参数是必需的，`但您可以通过将 `@RequestParam` 批注的 `required` 标志设置为 `false`！
 
-   `如果没有没有设置非必须，也没有传递参数会出现400错误：`
+`如果没有没有设置非必须，也没有传递参数会出现400错误：`
 
-   ![](http://cdn.this0.com/blog/img/image_vIkYCRMSZL.png)
+![](http://cdn.this0.com/blog/img/image_vIkYCRMSZL.png)
 
-   将参数设置非必须，并且设置默认值：
+将参数设置非必须，并且设置默认值：
 
-   ```java
-   @GetMapping(value="/data")
-   @ResponseBody
-   public Object paramForm(@RequestParam("name") String name, 
-                           @RequestParam(value = "stuAge",required = false,defaultValue = "18") int age){
-       System.out.println("name = " + name + ", age = " + age);
-       return name+age;
-   }
-   
-   ```
+```java
+@GetMapping(value="/data")
+@ResponseBody
+public Object paramForm(@RequestParam("name") String name, 
+                        @RequestParam(value = "stuAge",required = false,defaultValue = "18") int age){
+    System.out.println("name = " + name + ", age = " + age);
+    return name+age;
+}
 
-3. **特殊场景接值**//TODO
+```
 
-   1. `一名多值`
+##### 3 特殊场景接值//TODO
 
-      多选框，提交的数据的时候一个key对应多个值，我们可以使用集合进行接收！
+###### 1 `一名多值`
 
-      ```java
-        /**
-         * 前端请求: http://localhost:8080/param/mul?hbs=吃&hbs=喝
-         *
-         *  一名多值,可以使用集合接收即可!但是需要使用@RequestParam注解指定
-         */
-        @GetMapping(value="/mul")
-        @ResponseBody
-        public Object mulForm(@RequestParam List<String> hbs){
-            System.out.println("hbs = " + hbs);
-            return hbs;
-        }
-      ```
+多选框，提交的数据的时候一个key对应多个值，我们可以使用集合进行接收！
 
-   2. 实体接收
+```java
+  /**
+   * 前端请求: http://localhost:8080/param/mul?hbs=吃&hbs=喝
+   *
+   *  一名多值,可以使用集合接收即可!但是需要使用@RequestParam注解指定
+   */
+  @GetMapping(value="/mul")
+  @ResponseBody
+  public Object mulForm(@RequestParam List<String> hbs){
+      System.out.println("hbs = " + hbs);
+      return hbs;
+  }
+```
 
-      Spring MVC 是 Spring 框架提供的 Web 框架，它允许开发者使用实体对象来接收 HTTP 请求中的参数。通过这种方式，可以在方法内部直接使用对象的属性来访问请求参数，而不需要每个参数都写一遍。下面是一个使用实体对象接收参数的示例：
+###### 2 实体接收
 
-      定义一个用于接收参数的实体类：
+Spring MVC 是 Spring 框架提供的 Web 框架，它允许开发者使用实体对象来接收 HTTP 请求中的参数。通过这种方式，可以在方法内部直接使用对象的属性来访问请求参数，而不需要每个参数都写一遍。下面是一个使用实体对象接收参数的示例：
 
-      ```java
-      public class User {
-      
-        private String name;
-      
-        private int age = 18;
-      
-        // getter 和 setter 略
-      }
-      ```
+定义一个用于接收参数的实体类：
 
-      在控制器中，使用实体对象接收，示例代码如下：
+```java
+public class User {
 
-      ```java
-      @Controller
-      @RequestMapping("param")
-      public class ParamController {
-      
-          @RequestMapping(value = "/user", method = RequestMethod.POST)
-          @ResponseBody
-          public String addUser(User user) {
-              // 在这里可以使用 user 对象的属性来接收请求参数
-              System.out.println("user = " + user);
-              return "success";
-          }
-      }
-      ```
+  private String name;
 
-      在上述代码中，将`请求参数name和age映射到实体类属性上！要求属性名必须等于参数名`！否则无法映射！
+  private int age = 18;
 
-      使用postman传递参数测试：
+  // getter 和 setter 略
+}
+```
 
-      ![](http://cdn.this0.com/blog/img/image_5BkbhZjtyX.png)
+在控制器中，使用实体对象接收，示例代码如下：
+
+```java
+@Controller
+@RequestMapping("param")
+public class ParamController {
+
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @ResponseBody
+    public String addUser(User user) {
+        // 在这里可以使用 user 对象的属性来接收请求参数
+        System.out.println("user = " + user);
+        return "success";
+    }
+}
+```
+
+在上述代码中，将`请求参数name和age映射到实体类属性上！要求属性名必须等于参数名`！否则无法映射！
+
+使用postman传递参数测试：
+
+![](http://cdn.this0.com/blog/img/image_5BkbhZjtyX.png)
 
 #### 2.2.3 路径参数接收
 
@@ -615,6 +639,8 @@ SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的�
 例如，如果我们想将 `/user/{id}` 路径下的 `{id}` 映射到控制器方法的一个参数中，则可以使用 `@PathVariable` 注解来实现。
 
 下面是一个使用 `@PathVariable` 注解处理路径传递参数的示例：
+
+`//TODO形参列表取值: @PathVariable Long id  如果形参名 = {动态标识} 自动赋值!`
 
 ```java
  /**
@@ -633,7 +659,7 @@ public String getUser(@PathVariable Long id,
 }
 ```
 
-#### 2.2.4 json参数接收	//TODO，没有postman，后面再看，还有源码
+#### 2.2.4 json参数接收	
 
 前端传递 JSON 数据时，Spring MVC 框架可以使用 `@RequestBody` 注解来将 JSON 数据转换为 Java 对象。`@RequestBody` 注解表示当前方法参数的值应该从请求体中获取，并且需要指定 value 属性来指示请求体应该映射到哪个参数上。其使用方式和示例代码如下：
 
@@ -689,26 +715,19 @@ public String getUser(@PathVariable Long id,
    -   不支持json数据类型处理
    -   没有json类型处理的工具（jackson）
        解决：
-       springmvc handlerAdpater配置json转化器,配置类需要明确：
+       springmvc handlerAdpater配置json转化器,配置类需要明确：//TODO，json处理
 
    ```java
-   //TODO: SpringMVC对应组件的配置类 [声明SpringMVC需要的组件信息]
-   
-   //TODO: 导入handlerMapping和handlerAdapter的三种方式
-    //1.自动导入handlerMapping和handlerAdapter [推荐]
-    //2.可以不添加,springmvc会检查是否配置handlerMapping和handlerAdapter,没有配置默认加载
-    //3.使用@Bean方式配置handlerMapper和handlerAdapter
-   @EnableWebMvc  //json数据处理,必须使用此注解,因为他会加入json处理器
+   @EnableWebMvc  //TODO,json数据处理,必须使用此注解,因为他会加入json处理器
    @Configuration
-   @ComponentScan(basePackages = "com.atguigu.controller") //TODO: 进行controller扫描
-   
+   @ComponentScan(basePackages = "com.this0.springmvc.controller") 
    //WebMvcConfigurer springMvc进行组件配置的规范,配置组件,提供各种方法! 前期可以实现
    public class SpringMvcConfig implements WebMvcConfigurer {
-       }
+   }
    ```
 
-```
 pom.xml 加入jackson依赖
+
 ```xml
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
@@ -717,7 +736,7 @@ pom.xml 加入jackson依赖
 </dependency>
 ```
 
-5. @EnableWebMvc注解说明
+5. @EnableWebMvc注解说明//TODO
 
    @EnableWebMvc注解效果等同于在 XML 配置中，可以使用 `<mvc:annotation-driven>` 元素！我们来解析`<mvc:annotation-driven>`对应的解析工作！
 
@@ -738,58 +757,56 @@ pom.xml 加入jackson依赖
      ```java
      class AnnotationDrivenBeanDefinitionParser implements BeanDefinitionParser {
      
-       public static final String HANDLER_MAPPING_BEAN_NAME = RequestMappingHandlerMapping.class.getName();
+         public static final String HANDLER_MAPPING_BEAN_NAME = RequestMappingHandlerMapping.class.getName();
      
-       public static final String HANDLER_ADAPTER_BEAN_NAME = RequestMappingHandlerAdapter.class.getName();
+         public static final String HANDLER_ADAPTER_BEAN_NAME = RequestMappingHandlerAdapter.class.getName();
      
-       static {
-         ClassLoader classLoader = AnnotationDrivenBeanDefinitionParser.class.getClassLoader();
-         javaxValidationPresent = ClassUtils.isPresent("jakarta.validation.Validator", classLoader);
-         romePresent = ClassUtils.isPresent("com.rometools.rome.feed.WireFeed", classLoader);
-         jaxb2Present = ClassUtils.isPresent("jakarta.xml.bind.Binder", classLoader);
-         jackson2Present = ClassUtils.isPresent("com.fasterxml.jackson.databind.ObjectMapper", classLoader) &&
+         static {
+             ClassLoader classLoader = AnnotationDrivenBeanDefinitionParser.class.getClassLoader();
+             javaxValidationPresent = ClassUtils.isPresent("jakarta.validation.Validator", classLoader);
+             romePresent = ClassUtils.isPresent("com.rometools.rome.feed.WireFeed", classLoader);
+             jaxb2Present = ClassUtils.isPresent("jakarta.xml.bind.Binder", classLoader);
+             jackson2Present = ClassUtils.isPresent("com.fasterxml.jackson.databind.ObjectMapper", classLoader) &&
                  ClassUtils.isPresent("com.fasterxml.jackson.core.JsonGenerator", classLoader);
-         jackson2XmlPresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.xml.XmlMapper", classLoader);
-         jackson2SmilePresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.smile.SmileFactory", classLoader);
-         jackson2CborPresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.cbor.CBORFactory", classLoader);
-         gsonPresent = ClassUtils.isPresent("com.google.gson.Gson", classLoader);
-       }
+             jackson2XmlPresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.xml.XmlMapper", classLoader);
+             jackson2SmilePresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.smile.SmileFactory", classLoader);
+             jackson2CborPresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.cbor.CBORFactory", classLoader);
+             gsonPresent = ClassUtils.isPresent("com.google.gson.Gson", classLoader);
+         }
+         @Override
+         @Nullable
+         public BeanDefinition parse(Element element, ParserContext context) {
+             //handlerMapping加入到ioc容器
+             readerContext.getRegistry().registerBeanDefinition(HANDLER_MAPPING_BEAN_NAME, handlerMappingDef);
+     
+             //添加jackson转化器
+             addRequestBodyAdvice(handlerAdapterDef);
+             addResponseBodyAdvice(handlerAdapterDef);
+     
+             //handlerAdapter加入到ioc容器
+             readerContext.getRegistry().registerBeanDefinition(HANDLER_ADAPTER_BEAN_NAME, handlerAdapterDef);
+             return null;
+         }
+     
+         //具体添加jackson转化对象方法
+         protected void addRequestBodyAdvice(RootBeanDefinition beanDef) {
+             if (jackson2Present) {
+                 beanDef.getPropertyValues().add("requestBodyAdvice",
+                                                 new RootBeanDefinition(JsonViewRequestBodyAdvice.class));
+             }
+         }
+     
+         protected void addResponseBodyAdvice(RootBeanDefinition beanDef) {
+             if (jackson2Present) {
+                 beanDef.getPropertyValues().add("responseBodyAdvice",
+                                                 new RootBeanDefinition(JsonViewResponseBodyAdvice.class));
+             }
+         }
+     
+     
      ```
 
-
-          @Override
-          @Nullable
-          public BeanDefinition parse(Element element, ParserContext context) {
-            //handlerMapping加入到ioc容器
-            readerContext.getRegistry().registerBeanDefinition(HANDLER_MAPPING_BEAN_NAME, handlerMappingDef);
-    
-            //添加jackson转化器
-            addRequestBodyAdvice(handlerAdapterDef);
-            addResponseBodyAdvice(handlerAdapterDef);
-    
-            //handlerAdapter加入到ioc容器
-            readerContext.getRegistry().registerBeanDefinition(HANDLER_ADAPTER_BEAN_NAME, handlerAdapterDef);
-            return null;
-          }
-    
-          //具体添加jackson转化对象方法
-          protected void addRequestBodyAdvice(RootBeanDefinition beanDef) {
-            if (jackson2Present) {
-              beanDef.getPropertyValues().add("requestBodyAdvice",
-                  new RootBeanDefinition(JsonViewRequestBodyAdvice.class));
-            }
-          }
-    
-          protected void addResponseBodyAdvice(RootBeanDefinition beanDef) {
-            if (jackson2Present) {
-              beanDef.getPropertyValues().add("responseBodyAdvice",
-                  new RootBeanDefinition(JsonViewResponseBodyAdvice.class));
-            }
-          }
-    
-        ```
-
-### 2.3 接收Cookie数据	//TODO
+### 2.3 接收Cookie数据
 
 可以使用 `@CookieValue` 注释将 HTTP Cookie 的值绑定到控制器中的方法参数。
 
@@ -804,11 +821,15 @@ JSESSIONID=415A4AC178C59DACE0B2C9CA727CDD84
 ```java
 @GetMapping("/demo")
 public void handle(@CookieValue("JSESSIONID") String cookie) { 
-  //...
+    System.out.println("接收到了cookie数据："+cookie);
 }
 ```
 
-### 2.4 接收请求头数据	//TODO
+测试（需要先创建个cookies）
+
+![image-20240304211807635](C:/Users/yupen/AppData/Roaming/Typora/typora-user-images/image-20240304211807635.png)
+
+### 2.4 接收请求头数据
 
 可以使用 `@RequestHeader` 批注将请求标头绑定到控制器中的方法参数。
 
@@ -834,9 +855,9 @@ public void handle(
 }
 ```
 
-### 2.5 原生Api对象操作//TODO
+### 2.5 原生Api对象操作
 
-<https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/arguments.html>
+`//TODO还有model，map，moedlmap，三个对象没讲，下一章节讲，都是request级别的作用域，放在形参列表，另一个request级别的：ModelAndView，放在方法区。`
 
 下表描述了支持的控制器方法参数
 
@@ -844,15 +865,15 @@ public void handle(
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `jakarta.servlet.ServletRequest`, `jakarta.servlet.ServletResponse` | 请求/响应对象                                                |
 | `jakarta.servlet.http.HttpSession`                           | 强制存在会话。因此，这样的参数永远不会为 `null` 。           |
-| `java.io.InputStream`, `java.io.Reader`                      | 用于访问由 Servlet API 公开的原始请求正文。                  |
-| `java.io.OutputStream`, `java.io.Writer`                     | 用于访问由 Servlet API 公开的原始响应正文。                  |
+| java.io.InputStream, java.io.Reader                          | 用于访问由 Servlet API 公开的原始请求正文。                  |
+| java.io.OutputStream, java.io.Writer                         | 用于访问由 Servlet API 公开的原始响应正文。                  |
 | `@PathVariable`                                              | 接收路径参数注解                                             |
 | `@RequestParam`                                              | 用于访问 Servlet 请求参数，包括多部分文件。参数值将转换为声明的方法参数类型。 |
 | `@RequestHeader`                                             | 用于访问请求标头。标头值将转换为声明的方法参数类型。         |
 | `@CookieValue`                                               | 用于访问Cookie。Cookie 值将转换为声明的方法参数类型。        |
 | `@RequestBody`                                               | 用于访问 HTTP 请求正文。正文内容通过使用 `HttpMessageConverter` 实现转换为声明的方法参数类型。 |
 | `java.util.Map`, `org.springframework.ui.Model`, `org.springframework.ui.ModelMap` | 共享域对象，并在视图呈现过程中向模板公开。                   |
-| `Errors`, `BindingResult`                                    | 验证和数据绑定中的错误信息获取对象！                         |
+| Errors, BindingResult                                        | 验证和数据绑定中的错误信息获取对象！                         |
 
 获取原生对象示例：
 
@@ -871,9 +892,9 @@ public String api(HttpSession session , HttpServletRequest request,
 }
 ```
 
-### 2.6 共享域对象操作 //TODO看累了，后面看
+### 2.6 共享域对象操作 
 
-#### 2.6.1 属性（共享）域作用回顾//javaweb阶段学的
+#### 2.6.1 属性（共享）域作用回顾
 
 在 JavaWeb 中，共享域指的是在 Servlet 中存储数据，以便在同一 Web 应用程序的多个组件中进行共享和访问。常见的共享域有四种：`ServletContext`、`HttpSession`、`HttpServletRequest`、`PageContext`。
 
@@ -988,7 +1009,7 @@ public String testAttrSession(HttpSession session) {
 
 #### 2.6.4 Application级别属性（共享）域
 
-解释：springmvc会在初始化容器的时候，讲servletContext对象存储到ioc容器中！
+解释：springmvc会在初始化容器的时候，将servletContext对象存储到ioc容器中！
 
 ```java
 @Autowired
@@ -1006,27 +1027,23 @@ public String attrApplication() {
 
 ## 三、SpringMVC响应数据
 
-### 3.1 handler方法分析	//TODO
+### 3.1 handler方法分析
 
 理解handler方法的作用和组成：
 
 ```java
 /**
- * TODO: 一个controller的方法是控制层的一个处理器,我们称为handler
- * TODO: handler需要使用@RequestMapping/@GetMapping系列,声明路径,在HandlerMapping中注册,供DS查找!
- * TODO: handler作用总结:
- *       1.接收请求参数(param,json,pathVariable,共享域等) 
- *       2.调用业务逻辑 
- *       3.响应前端数据(页面（不讲解模版页面跳转）,json,转发和重定向等)
- * TODO: handler如何处理呢
- *       1.接收参数: handler(形参列表: 主要的作用就是用来接收参数)
+ * 一个controller的方法是控制层的一个处理器,我们称为handler
+ * handler需要使用@RequestMapping/@GetMapping系列,声明路径,在HandlerMapping中注册,供DS查找!
+ * 		 handler作用总结:
+ *       1.接收参数:
  *       2.调用业务: { 方法体  可以向后调用业务方法 service.xx() }
- *       3.响应数据: return 返回结果,可以快速响应前端数据
+ *       3.响应数据: 响应前端数据,模版页面跳转
  */
 @GetMapping
 public Object handler(简化请求参数接收){
     调用业务方法
-    返回的结果 （页面跳转，返回数据（json））
+    返回结果 （页面跳转，返回数据（json））
     return 简化响应前端数据;
 }
 ```
@@ -1039,36 +1056,36 @@ public Object handler(简化请求参数接收){
 
 ### 3.2 页面跳转控制
 
-#### 3.2.1 快速返回模板视图	//TODO
+#### 3.2.1 快速返回模板视图
 
-1. 开发模式回顾
+##### 1 开发模式回顾
 
-   在 Web 开发中，有两种主要的开发模式：前后端分离和混合开发。
+在 Web 开发中，有两种主要的开发模式：前后端分离和混合开发。
 
-   前后端分离模式：\[重点]
+前后端分离模式：\[重点]
 
-   指将前端的界面和后端的业务逻辑通过接口分离开发的一种方式。开发人员使用不同的技术栈和框架，前端开发人员主要负责页面的呈现和用户交互，后端开发人员主要负责业务逻辑和数据存储。前后端通信通过 API 接口完成，数据格式一般使用 JSON 或 XML。前后端分离模式可以提高开发效率，同时也有助于代码重用和维护。
+指将前端的界面和后端的业务逻辑通过接口分离开发的一种方式。开发人员使用不同的技术栈和框架，前端开发人员主要负责页面的呈现和用户交互，后端开发人员主要负责业务逻辑和数据存储。前后端通信通过 API 接口完成，数据格式一般使用 JSON 或 XML。前后端分离模式可以提高开发效率，同时也有助于代码重用和维护。
 
-   混合开发模式：
+混合开发模式：
 
-   指将前端和后端的代码集成在同一个项目中，共享相同的技术栈和框架。这种模式在小型项目中比较常见，可以减少学习成本和部署难度。但是，在大型项目中，这种模式会导致代码耦合性很高，维护和升级难度较大。
+指将前端和后端的代码集成在同一个项目中，共享相同的技术栈和框架。这种模式在小型项目中比较常见，可以减少学习成本和部署难度。但是，在大型项目中，这种模式会导致代码耦合性很高，维护和升级难度较大。
 
-   对于混合开发，我们就需要使用动态页面技术，动态展示Java的共享域数据！！
+对于混合开发，我们就需要使用动态页面技术，动态展示Java的共享域数据！！
 
-2. jsp技术了解
+##### 2 jsp技术,了解就行
 
-   JSP（JavaServer Pages）是一种动态网页开发技术，它是由 Sun 公司提出的一种基于 Java 技术的 Web 页面制作技术，可以在 HTML 文件中嵌入 Java 代码，使得生成动态内容的编写更加简单。
+JSP（JavaServer Pages）是一种动态网页开发技术，它是由 Sun 公司提出的一种基于 Java 技术的 Web 页面制作技术，可以在 HTML 文件中嵌入 Java 代码，使得生成动态内容的编写更加简单。
 
-   JSP 最主要的作用是生成动态页面。它允许将 Java 代码嵌入到 HTML 页面中，以便使用 Java 进行数据库查询、处理表单数据和生成 HTML 等动态内容。另外，JSP 还可以与 Servlet 结合使用，实现更加复杂的 Web 应用程序开发。
+JSP 最主要的作用是生成动态页面。它允许将 Java 代码嵌入到 HTML 页面中，以便使用 Java 进行数据库查询、处理表单数据和生成 HTML 等动态内容。另外，JSP 还可以与 Servlet 结合使用，实现更加复杂的 Web 应用程序开发。
 
-   JSP 的主要特点包括：
+JSP 的主要特点包括：
 
-   1.  简单：JSP 通过将 Java 代码嵌入到 HTML 页面中，使得生成动态内容的编写更加简单。
-   2.  高效：JSP 首次运行时会被转换为 Servlet，然后编译为字节码，从而可以启用 Just-in-Time（JIT）编译器，实现更高效的运行。
-   3.  多样化：JSP 支持多种标准标签库，包括 JSTL（JavaServer Pages 标准标签库）、EL（表达式语言）等，可以帮助开发人员更加方便的处理常见的 Web 开发需求。
-       总之，JSP 是一种简单高效、多样化的动态网页开发技术，它可以方便地生成动态页面和与 Servlet 结合使用，是 Java Web 开发中常用的技术之一。
+1.  简单：JSP 通过将 Java 代码嵌入到 HTML 页面中，使得生成动态内容的编写更加简单。
+2.  高效：JSP 首次运行时会被转换为 Servlet，然后编译为字节码，从而可以启用 Just-in-Time（JIT）编译器，实现更高效的运行。
+3.  多样化：JSP 支持多种标准标签库，包括 JSTL（JavaServer Pages 标准标签库）、EL（表达式语言）等，可以帮助开发人员更加方便的处理常见的 Web 开发需求。
+    总之，JSP 是一种简单高效、多样化的动态网页开发技术，它可以方便地生成动态页面和与 Servlet 结合使用，是 Java Web 开发中常用的技术之一。
 
-3. 准备jsp页面和依赖
+1. 准备jsp页面和依赖
 
    pom.xml依赖
 
@@ -1101,7 +1118,7 @@ public Object handler(简化请求参数接收){
    
    ```
 
-4. 快速响应模版页面
+2. 快速响应模版页面
 
    1. 配置jsp视图解析器
 
@@ -1145,7 +1162,7 @@ public Object handler(简化请求参数接收){
 
 #### 3.2.2 转发和重定向
 
-在 Spring MVC 中，Handler 方法返回值来实现快速转发，可以使用 `redirect` 或者 `forward` 关键字来实现重定向。
+在 Spring MVC 中，Handler 方法返回值来实现快速转发，可以使用 `redirect` 或者 `forward` 关键字来实现重定向。//TODO
 
 ```java
 @RequestMapping("/redirect-demo")
@@ -1189,19 +1206,10 @@ public String forwardDemo() {
 @EnableWebMvc&#x20;
 
 ```java
-//TODO: SpringMVC对应组件的配置类 [声明SpringMVC需要的组件信息]
-
-//TODO: 导入handlerMapping和handlerAdapter的三种方式
- //1.自动导入handlerMapping和handlerAdapter [推荐]
- //2.可以不添加,springmvc会检查是否配置handlerMapping和handlerAdapter,没有配置默认加载
- //3.使用@Bean方式配置handlerMapper和handlerAdapter
 @EnableWebMvc  //json数据处理,必须使用此注解,因为他会加入json处理器
 @Configuration
-@ComponentScan(basePackages = "com.atguigu.controller") //TODO: 进行controller扫描
-
-//WebMvcConfigurer springMvc进行组件配置的规范,配置组件,提供各种方法! 前期可以实现
+@ComponentScan(basePackages = "com.this0.springmvc.controller") 
 public class SpringMvcConfig implements WebMvcConfigurer {
-
 
 }
 ```
@@ -1210,7 +1218,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 
 1. 方法上使用@ResponseBody
 
-   可以在方法上使用 `@ResponseBody`注解，用于将方法返回的对象序列化为 JSON 或 XML 格式的数据，并发送给客户端。在前后端分离的项目中使用！
+   可以在方法上使用 `@ResponseBody`注解，用于将方法返回的对象序列化为` JSON 或 XML 格式`的数据，并发送给客户端。在前后端分离的项目中使用！
 
    测试方法：
 
@@ -1223,7 +1231,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
    }
    ```
 
-   具体来说，`@ResponseBody` 注解可以用来标识方法或者方法返回值，表示方法的返回值是要直接返回给客户端的数据，而不是由视图解析器来解析并渲染生成响应体（`viewResolver没用//TODO`）。		意思是不是跳转视图
+   具体来说，`@ResponseBody` 注解可以用来标识方法或者方法返回值，表示方法的返回值是要直接返回给客户端的数据，而不是由视图解析器来解析并渲染生成响应体（`这样不会使用viewResolver`）。		意思是不是跳转视图
 
    测试方法：
 
@@ -1281,7 +1289,7 @@ public @interface RestController {
 }
 ```
 
-### 3.4 返回静态资源处理	//TODO用的少，先不看
+### 3.4 返回静态资源处理
 
 1. **静态资源概念**
 
@@ -1299,17 +1307,17 @@ public @interface RestController {
 
      ![](http://cdn.this0.com/blog/img/image_4ZDfBKo7ze.png)
 
-   - 手动构建确保编译
+   - 确保编译了
 
-     ![](http://cdn.this0.com/blog/img/image_WNWOVOea6e.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=35Eo3Ai2Eh4VWb6///gzL7eec4g=&x-oss-process=style/cdn.this0)
+   - ![image-20240305221424634](http://cdn.this0.com/blog/img/image-20240305221424634.png)
 
-     ![](http://cdn.this0.com/blog/img/image_jkHB39M3Xa.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=79TkX7uuaTGYkNQ9gSp8B4YO45k=&x-oss-process=style/cdn.this0)
+     编译前的位置:
 
-     ![](http://cdn.this0.com/blog/img/image_iUBYDKRqy5.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=plopl4EOTwEg6bVVMEEs9Ob99Bk=&x-oss-process=style/cdn.this0)
+     ![image-20240305221327383](http://cdn.this0.com/blog/img/image-20240305221327383.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=BKJLRQgy5bAcv2bsT07CoC4kC1M=&x-oss-process=style/cdn.this0)
 
    - 访问静态资源
 
-     ![](http://cdn.this0.com/blog/img/image_k7bhHrwvx1.png)
+     ![image-20240305221047504](http://cdn.this0.com/blog/img/image-20240305221047504.png)
 
    - 问题分析
 
@@ -1323,42 +1331,22 @@ public @interface RestController {
      在 SpringMVC 配置配置类：
 
      ```java
-     @EnableWebMvc  //json数据处理,必须使用此注解,因为他会加入json处理器
+     @EnableWebMvc
      @Configuration
-     @ComponentScan(basePackages = "com.atguigu.controller") //TODO: 进行controller扫描
-     //WebMvcConfigurer springMvc进行组件配置的规范,配置组件,提供各种方法! 前期可以实现
+     @ComponentScan(basePackages = "com.this0.springmvc")
      public class SpringMvcConfig implements WebMvcConfigurer {
      
-         //配置jsp对应的视图解析器
-         @Override
-         public void configureViewResolvers(ViewResolverRegistry registry) {
-             //快速配置jsp模板语言对应的
-             registry.jsp("/WEB-INF/views/",".jsp");
-         }
-         
-         //开启静态资源处理 <mvc:default-servlet-handler/>
+         //开启静态资源处理
          @Override
          public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+             WebMvcConfigurer.super.configureDefaultServletHandling(configurer);
              configurer.enable();
          }
      }
      ```
+     
 
-     再次测试访问图片：
-
-     ![](http://cdn.this0.com/blog/img/image_mrBsYbjiMM.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=Og7yVl3yR3tz3K8NJNo04K14gKo=&x-oss-process=style/cdn.this0)
-
-   - 新的问题：其他原本正常的handler请求访问不了了
-
-     handler无法访问
-
-     解决方案：
-
-     ```xml
-     @EnableWebMvc  //json数据处理,必须使用此注解,因为他会加入json处理器
-     ```
-
-## 四、RESTFul风格设计和实战	//TODO留一下
+## 四、RESTFul风格设计和实战	
 
 ### 4.1 RESTFul风格概述
 
@@ -1398,7 +1386,7 @@ RESTful（Representational State Transfer）是一种软件架构风格，用于
 
 2. **URL路径风格要求**
 
-   REST风格下每个资源都应该有一个唯一的标识符，例如一个 URI（统一资源标识符）或者一个 URL（统一资源定位符）。资源的标识符应该能明确地说明该资源的信息，同时也应该是可被理解和解释的！
+   REST风格下每个资源都应该有一个唯一的标识符，例如一个 `URI（统一资源标识符）`或者一个` URL（统一资源定位符）`。资源的标识符应该能明确地说明该资源的信息，同时也应该是可被理解和解释的！
 
    使用URL+请求方式确定具体的动作，他也是一种标准的HTTP协议请求！
 
@@ -1442,7 +1430,7 @@ RESTful（Representational State Transfer）是一种软件架构风格，用于
    | 保存 | /CRUD/saveEmp           | URL 地址：/CRUD/emp&#xA;请求方式：POST     |
    | 删除 | /CRUD/removeEmp?empId=2 | URL 地址：/CRUD/emp/2&#xA;请求方式：DELETE |
    | 更新 | /CRUD/updateEmp         | URL 地址：/CRUD/emp&#xA;请求方式：PUT      |
-   | 查询 | /CRUD/editEmp?empId=2   | URL 地址：/CRUD/emp/2&#xA;请求方式：GET    |
+   | 查询 | /CRUD/querEmp?empId=2   | URL 地址：/CRUD/emp/2&#xA;请求方式：GET    |
 
 6. 丰富的语义
 
@@ -1496,18 +1484,12 @@ RESTful（Representational State Transfer）是一种软件架构风格，用于
 准备用户实体类：
 
 ```java
-package com.atguigu.pojo;
+package com.this0.springmvc.pojo;
 
-/**
- * projectName: com.atguigu.pojo
- * 用户实体类
- */
 public class User {
-
     private Integer id;
     private String name;
-
-    private Integer age;
+    private int age = 18;
 
     public Integer getId() {
         return id;
@@ -1525,11 +1507,11 @@ public class User {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -1542,7 +1524,6 @@ public class User {
                 '}';
     }
 }
-
 ```
 
 准备用户Controller:
@@ -1636,7 +1617,7 @@ public class UserController {
 
 使用声明式异常处理，可以统一项目处理异常思路，项目更加清晰明了！
 
-#### 5.1.2 `基于注解异常声明异常处理`	//项目中做过
+#### 5.1.2 `基于注解异常声明异常处理`	//TODO
 
 1. 声明异常处理控制器类
 
@@ -1644,8 +1625,6 @@ public class UserController {
 
    ```java
    /**
-    * projectName: com.atguigu.execptionhandler
-    * 
     * description: 全局异常处理器,内部可以定义异常处理Handler!
     */
    
@@ -1659,7 +1638,7 @@ public class UserController {
      
    }
    ```
-
+   
 2. 声明异常处理hander方法
 
    异常处理handler方法和普通的handler方法参数接收和响应都一致！
@@ -1757,7 +1736,7 @@ public class UserController {
 
 选择：
 
-功能需要如果用 SpringMVC 的拦截器能够实现，就不使用过滤器。
+如果功能用 SpringMVC 的拦截器能够实现，就不使用过滤器。
 
 ![](http://cdn.this0.com/blog/img/image_7rIm3LKXgr.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=83UweclhNS60fVWYELoL/5Hm3Hc=&x-oss-process=style/cdn.this0)
 
@@ -1768,31 +1747,34 @@ public class UserController {
    ```java
    public class Process01Interceptor implements HandlerInterceptor {
    
-       // if( ! preHandler()){return;}
-       // 在处理请求的目标 handler 方法前执行
        @Override
        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
            System.out.println("request = " + request + ", response = " + response + ", handler = " + handler);
            System.out.println("Process01Interceptor.preHandle");
-            
            // 返回true：放行
            // 返回false：不放行
+   //        return HandlerInterceptor.super.preHandle(request, response, handler);
            return true;
        }
-    
-       // 在目标 handler 方法之后，handler报错不执行!
+   
+       // 在目标 handler 方法之后，如果handler报错不执行!
        @Override
        public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+           HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
            System.out.println("request = " + request + ", response = " + response + ", handler = " + handler + ", modelAndView = " + modelAndView);
            System.out.println("Process01Interceptor.postHandle");
        }
-    
-       // 渲染视图之后执行(最后),一定执行!
+   
+   
+       // 渲染视图之后执行(最后),不管报错，一定执行!
        @Override
        public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+           HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
            System.out.println("request = " + request + ", response = " + response + ", handler = " + handler + ", ex = " + ex);
            System.out.println("Process01Interceptor.afterCompletion");
        }
+   
+   
    }
    ```
 
@@ -1803,36 +1785,27 @@ public class UserController {
 2. 修改配置类添加拦截器
 
    ```java
-   @EnableWebMvc  //json数据处理,必须使用此注解,因为他会加入json处理器
+   @EnableWebMvc
    @Configuration
-   @ComponentScan(basePackages = {"com.atguigu.controller","com.atguigu.exceptionhandler"}) //TODO: 进行controller扫描
-   //WebMvcConfigurer springMvc进行组件配置的规范,配置组件,提供各种方法! 前期可以实现
+   @ComponentScan(basePackages = "com.this0.springmvc")
    public class SpringMvcConfig implements WebMvcConfigurer {
    
-       //配置jsp对应的视图解析器
-       @Override
-       public void configureViewResolvers(ViewResolverRegistry registry) {
-           //快速配置jsp模板语言对应的
-           registry.jsp("/WEB-INF/views/",".jsp");
-       }
-   
-       //开启静态资源处理 <mvc:default-servlet-handler/>
+       //开启静态资源处理
        @Override
        public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+           WebMvcConfigurer.super.configureDefaultServletHandling(configurer);
            configurer.enable();
        }
    
        //添加拦截器
        @Override
-       public void addInterceptors(InterceptorRegistry registry) { 
+       public void addInterceptors(InterceptorRegistry registry) {
            //将拦截器添加到Springmvc环境,默认拦截所有Springmvc分发的请求
            registry.addInterceptor(new Process01Interceptor());
        }
    }
+   
    ```
-
-
-    ```
 
 3. 配置详解
 
@@ -1894,7 +1867,7 @@ public class UserController {
    2.  postHandle() 方法：SpringMVC 会把所有拦截器收集到一起，然后按照配置相反的顺序调用各个 postHandle() 方法。
    3.  afterCompletion() 方法：SpringMVC 会把所有拦截器收集到一起，然后按照配置相反的顺序调用各个 afterCompletion() 方法。
 
-### 5.3 参数校验	//TODO，多次出现了
+### 5.3 参数校验
 
 > 在 Web 应用三层架构体系中，表述层负责接收浏览器提交的数据，业务逻辑层负责数据的处理。为了能够让业务逻辑层基于正确的数据进行处理，我们需要在表述层对数据进行检查，将错误的数据隔绝在业务逻辑层之外。
 
@@ -1924,8 +1897,12 @@ public class UserController {
    | @Length                                                      | 标注值字符串大小必须在指定的范围内             |
    | @NotEmpty                                                    | 标注值字符串不能是空字符串                     |
    | @Range                                                       | 标注值必须在指定的范围内                       |
-   | Spring 4.0 版本已经拥有自己独立的数据校验框架，同时支持 JSR 303 标准的校验框架。Spring 在进行数据绑定时，可同时调用校验框架完成数据校验工作。在SpringMVC 中，可直接通过注解驱动 @EnableWebMvc 的方式进行数据校验。Spring 的 LocalValidatorFactoryBean 既实现了 Spring 的 Validator 接口，也实现了 JSR 303 的 Validator 接口。只要在Spring容器中定义了一个LocalValidatorFactoryBean，即可将其注入到需要数据校验的 Bean中。Spring本身并没有提供JSR 303的实现，所以必须将JSR 303的实现者的jar包放到类路径下。 |                                                |
-   | 配置 @EnableWebMvc后，SpringMVC 会默认装配好一个 LocalValidatorFactoryBean，通过在处理方法的入参上标注 @Validated 注解即可让 SpringMVC 在完成数据绑定后执行数据校验的工作。 |                                                |
+   |                                                              |                                                |
+   |                                                              |                                                |
+
+   Spring 4.0 版本已经拥有自己独立的数据校验框架，同时支持 JSR 303 标准的校验框架。Spring 在进行数据绑定时，可同时调用校验框架完成数据校验工作。在SpringMVC 中，可直接通过注解驱动 @EnableWebMvc 的方式启用数据校验。`Spring 的 LocalValidatorFactoryBean 既实现了 Spring 的 Validator 接口，也实现了 JSR 303 的 Validator 接口`。只要在Spring容器中定义了一个LocalValidatorFactoryBean，即可将其注入到需要数据校验的 Bean中。Spring本身并没有提供JSR 303的实现，所以必须将JSR 303的实现者的jar包放到类路径下。
+
+   `配置 @EnableWebMvc后，SpringMVC 会默认装配好一个 LocalValidatorFactoryBean`，通过在处理方法的入参上标注 @Validated 注解即可让 SpringMVC 在完成数据绑定后执行数据校验的工作。
 
 2. **操作演示**
 
@@ -1966,11 +1943,10 @@ public class UserController {
       * projectName: com.atguigu.pojo
       */
      public class User {
-         //age   1 <=  age < = 150
+         
          @Min(10)
          private int age;
      
-         //name 3 <= name.length <= 6
          @Length(min = 3,max = 10)
          private String name;
      
@@ -2002,9 +1978,8 @@ public class UserController {
              this.email = email;
          }
      }
-     
      ```
-
+     
    - handler标记和绑定错误收集
 
      ```java
@@ -2036,7 +2011,7 @@ public class UserController {
 
      ![](http://cdn.this0.com/blog/img/image_BKORDdDEb9.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=7Ci0URqSD4Z85C7mYyymn4uAgaw=&x-oss-process=style/cdn.this0)
 
-3. **易混总结**
+3. **易混总结**//TODO
 
    @NotNull、@NotEmpty、@NotBlank 都是用于在数据校验中检查字段值是否为空的注解，但是它们的用法和校验规则有所不同。
 
