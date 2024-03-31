@@ -1,0 +1,15 @@
+
+安装tomcat
+添加
+export CATALINA_HOME=/home/yupengtao/SDE/apache-tomcat-8.5.69                    #tomcat环境变量
+修改
+export PATH=$PATH:${JAVA_HOME}/bin:${JAVA_PATH}:${CATALINA_HOME}/bin
+
+验证是否安装成功
+startup.sh
+sudo pacman -S lsof
+lsof -i:8080
+
+
+
+

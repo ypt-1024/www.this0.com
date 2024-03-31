@@ -1,0 +1,46 @@
+su
+
+
+
+   duwindows
+   16  sudo pacman -S ntfs-3g
+
+
+   19  yay -S unrar
+   20  yay -S p7zip
+   21  yay -S obs-studio
+   22  yay -S baidunetdisk-electron
+   23  yay -S kdenlive
+   24  yay -S gimp
+   25  yay -S flameshot
+   26  yay -S utools
+   27  yay -S motrix-bin
+   30  yay -S figlet
+
+
+   33  systemctl enable udisks2
+
+
+
+   37  pacman -S neovim
+   38  sudo pacman -S neovim
+   39  sudo pacman -S neofetch
+   40  neofetch
+   41  neovim
+
+   43  sudo pacman -S steam
+
+
+   51  alsamixer
+   52   sudo pacman -S alsa-utils
+
+   55  alsamixer
+   56   sudo pacman -S alsa-utils
+   57   sudo pacman -S alsa-utils
+
+
+
+
+   73  yay -S Flameshot-git
+
+
