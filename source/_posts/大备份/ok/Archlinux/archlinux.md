@@ -332,6 +332,9 @@ XMODIFIERS=@im=fcitx
 INPUT_METHOD=fcitx
 SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=ibus
+#虽然提示不用加下面两行，但是不加有的应用不能正常使用输入法，一定要加上
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx 
 ```
 
 重启后即可生效
