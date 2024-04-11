@@ -92,4 +92,4 @@ docker version
 
 ### 8 安装成功界面
 
-![image-20240201081805985](http://cdn.this0.com/blog/img/image-20240201081805985.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=1ITtOx726KBcoEfiiGrji4QRyus=&x-oss-process=style/cdn.this0)
+![image-20240201081805985](http://cdn.this0.com/blog/img/image-20240201081805985.png)
