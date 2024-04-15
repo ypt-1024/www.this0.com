@@ -164,7 +164,7 @@ archinstall
 
 到这里就大功告成，直接reboot重启
 
-### 5. 基本设置
+### 5. 常用设置
 
 #### 1 安装常用字体
 
@@ -252,6 +252,12 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ![屏幕截图_20240323_183124](https://blog-resources.this0.com/image/202403232047995.png?x-oss-process=style/this0-blog)
+
+#### 8 解压乱码问题
+
+直接取消勾选Libzip插件
+
+![image-20240416020207018](https://blog-resources.this0.com/image/202404160204026.png?x-oss-process=style/this0-blog)
 
 ### 6. 添加存储库
 
@@ -470,4 +476,4 @@ yay -S netease-cloud-music
 yay -S flameshot
 ```
 
-安装完自己配置快捷键，我使用的ctrl + shift  + s，把文件另存为的快捷键替换了
+安装完自己配置快捷键，我使用的ctrl + shift  + s，调用火焰截图，把文件另存为的快捷键替换了。
