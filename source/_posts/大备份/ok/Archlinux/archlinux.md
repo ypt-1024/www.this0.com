@@ -164,7 +164,7 @@ archinstall
 
 到这里就大功告成，直接reboot重启
 
-### 5. 常用设置
+### 5. 基本设置
 
 #### 1 安装常用字体
 
@@ -255,9 +255,15 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 #### 8 解压乱码问题
 
-直接取消勾选Libzip插件
+第一步，直接取消勾选Libzip插件
 
 ![image-20240416020207018](https://blog-resources.this0.com/image/202404160204026.png?x-oss-process=style/this0-blog)
+
+第二步，安装p7zip-natspec或者替换p7zip为p7zip-natspec
+
+```
+yay -S p7zip-natspec
+```
 
 ### 6. 添加存储库
 
