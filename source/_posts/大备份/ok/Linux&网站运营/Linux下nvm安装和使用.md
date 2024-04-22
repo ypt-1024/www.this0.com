@@ -129,5 +129,3 @@ npm config set prefix /home/ypt/SDE/GlobalNodeModules
 ```
 npm config get prefix
 ```
-
-### 
