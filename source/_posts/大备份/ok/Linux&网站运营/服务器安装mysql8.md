@@ -113,8 +113,6 @@ mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'your_strong_password';
 ```
 
-   
-
 2. 创建新用户：
 
 ```
@@ -133,28 +131,51 @@ GRANT ALL PRIVILEGES ON *.* TO 'abcd'@'%';
 FLUSH PRIVILEGES;
 ```
 
-### 9.设置机器启动时候自动启动mysql
+### 9.设置mysql开机自启
+
+复制服务到自启动路径下
 
 ```
-## 复制到自启动路径下
 cp /usr/local/mysql/mysql-8.0.34/support-files/mysql.server /etc/init.d/mysqld
-## 显示服务列表
+```
+
+#### 显示服务列表
+
+```
 chkconfig --list
-## 添加服务
+```
+
+#### 添加服务
+
+```
 chkconfig --add mysqld
-## 重新查看显示服务列表
+```
+
+#### 重新查看显示服务列表
+
+```
 chkconfig --list
-## 如果是关闭的话，使用下面命令将其开启
+```
+
+#### 如果是关闭的话，使用下面命令将其开启
+
+```
 chkconfig --level 345 mysqld on
 ```
 
-![img](https://yuling-1318764606.cos.ap-chengdu.myqcloud.com/blog/2020241-20230612164252190-1060039843.png)
+
+
+
+
+
+
+
+
+![img](https://blog-resources.this0.com/image/202405061644534.png?x-oss-process=style/this0-blog)
 
  
 
-![img](https://yuling-1318764606.cos.ap-chengdu.myqcloud.com/blog/2020241-20230612164316620-756314218.png)
-
- 
+![img](https://blog-resources.this0.com/image/202405061644112.png?x-oss-process=style/this0-blog)
 
 ### 10.安全设置
 
