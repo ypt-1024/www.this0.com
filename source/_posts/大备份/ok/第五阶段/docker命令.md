@@ -220,13 +220,13 @@ docker images --help
 
 #### 3.2 创建容器
 
+//TODO docker -it 和docker -d命令
+
 * 容器分类：
 
 1、交互型容器：具有和用户交互的输入和输出终端，容器创建后自动进入容器中，退出容器后，容器自动关闭。
 
 2、守护型容器：没有和用户交互终端，需要使用docker exec进入容器，退出后，容器不会关闭。
-
-
 
 * 命令介绍：
 
@@ -372,6 +372,8 @@ docker cp 											 # 完成容器和宿主机之间的文件copy
 
 #### 3.7 备份与迁移
 
+//TODO docker -i /docker -o
+
 对某一个容器修改完毕以后，我们可以把最新的容器部署到其他的环境中。具体的流程操作如下所示：
 
 ![image-20230420152250969](https://blog-resources.this0.com/image/202405061739099.png?x-oss-process=style/this0-blog)  
@@ -381,7 +383,7 @@ docker cp 											 # 完成容器和宿主机之间的文件copy
 ```shell
 docker commit 容器名称/容器的id 镜像名称			  # 把docker容器保存成一个镜像
 docker save -o 镜像tar文件名称 镜像名称/镜像id		 # 把镜像保存为tar文件
-docker load -i 镜像名称							  # 把tar文件恢复成为一个镜像
+docker load -i 镜像tar文件名称							  # 把tar文件恢复成为一个镜像
 ```
 
 示例代码：
@@ -393,17 +395,13 @@ docker rmi mycentos								     # 删除之前的mycentos镜像
 docker load -i mycentos.tar 						 # 将mycentos.tar恢复成一个镜像
 ```
 
+### 4 docker数据卷操作
 
-
-# 4 docker数据卷操作
-
-## 4.1 数据卷概述
+#### 4.1 数据卷概述
 
 思考问题：在Redis容器中存储的数据，如果Redis容器被删除了，数据是否还存在?
 
 解决方案：将数据存储到Linux宿主机的磁盘目录中
-
-
 
 数据卷概述：数据卷是docker所提供的一个虚拟目录，这个虚拟目录会对应宿主机的一个真实目录。在创建容器的时候就可以将这个数据卷挂载到容器中的某一个目录下，那么此时在该目录下所产生的数据就会存储到宿主机的目录下，实现了容器和宿主机之间的文件共享。
 
@@ -411,9 +409,21 @@ docker load -i mycentos.tar 						 # 将mycentos.tar恢复成一个镜像
 
 ![image-20230420170343281](https://blog-resources.this0.com/image/202405061739100.png?x-oss-process=style/this0-blog)  
 
-## 4.2 常见命令
+#### 4.2 常见命令
 
-### 4.2.1 查看数据卷
+//TODO，数据卷相关命令
+
+```bash
+docker volume ls
+
+docker volume create 数据卷名称
+
+docker volume inspect 数据卷名称
+
+docker volume prune
+```
+
+##### 4.2.1 查看数据卷
 
 命令如下所示：
 
@@ -425,7 +435,7 @@ docker volume ls
 
 ![image-20230420170726620](https://blog-resources.this0.com/image/202405061739101.png?x-oss-process=style/this0-blog)  
 
-### 4.2.2 创建数据卷
+##### 4.2.2 创建数据卷
 
 命令如下所示：
 
@@ -437,7 +447,7 @@ docker volume create 数据卷名称
 
 ![image-20230717105911099](https://blog-resources.this0.com/image/202405061739102.png?x-oss-process=style/this0-blog) 
 
-### 4.2.3 查询数据卷详情
+##### 4.2.3 查询数据卷详情
 
 命令如下所示：
 
@@ -449,13 +459,12 @@ docker volume inspect 数据卷名称
 
 ![image-20230717105936542](https://blog-resources.this0.com/image/202405061739103.png?x-oss-process=style/this0-blog) 
 
-### 4.2.4 删除数据卷
+##### 4.2.4 删除数据卷
 
 命令如下所示：
 
 ```shell
 docker volume rm 数据卷名称  # 删除指定的数据卷
-
 ```
 
 执行效果如下所示：
@@ -479,9 +488,11 @@ docker volume rm 数据卷名称  # 删除指定的数据卷
 
 1、如果数据卷没有提前创建好，那么在创建容器的时候会自动创建对应的数据卷
 
-2、数据卷挂载的时候数据卷名称前面**没有/**
+2、`数据卷挂载`的时候数据卷名称前面**没有/**
 
 3、容器目录不存在会自动创建
+
+//TODO，数据卷覆盖,和下文的不一样
 
 4、数据卷目录如果不为空，此时会使用数据卷目录内容覆盖容器目录内容
 
@@ -504,13 +515,13 @@ docker volume rm 数据卷名称  # 删除指定的数据卷
 
 1、如果宿主机目录没有提前创建好，那么在创建容器的时候会自动创建对应的宿主机目录
 
-2、宿主机目录挂载的时候宿主机目录名称前面**有/**
+2、宿主机`目录挂载`的时候宿主机目录名称前面**有/**
 
 3、容器目录不存在会自动创建
 
 4、宿主机目录如果不为空，此时会使用宿主机目录内容覆盖容器目录内容
 
-5、宿主机目录如果为空，容器目录不为空，此时就会使用容器目录内容清空掉
+5、宿主机目录如果为空，容器目录不为空，此时就会清空掉容器目录内容
 
 
 
