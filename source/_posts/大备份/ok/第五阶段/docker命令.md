@@ -353,7 +353,7 @@ docker rm $(docker ps -aq)
 
 #### 3.6 其他命令
 
-//TODO
+//TODO,其他命令，比较多，有docker cp，docker logs，docker inspect
 
 如下所示：
 
