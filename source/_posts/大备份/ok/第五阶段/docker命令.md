@@ -525,9 +525,11 @@ docker volume rm 数据卷名称  # 删除指定的数据卷
 
 
 
-# 5 Portainer工具
+### 5 Portainer工具
 
-## 5.1 安装与启动
+//TODO，移动过去到总集
+
+#### 5.1 安装与启动
 
 上述对容器和镜像的管理都是基于docker客户端的命令来完成，不太方便。为了方便的对docker中的一些对象(镜像、容器、数据卷...)来进行管理，可以使用Portainer来完成。Portainer是一个**可视化**的容器镜像的图形管理**工具**，利用Portainer可以轻松构建，管理和维护docker环境。
 
@@ -561,7 +563,7 @@ Portainer的首页
 
 ![image-20230420174325520](https://blog-resources.this0.com/image/202405061739107.png?x-oss-process=style/this0-blog) 
 
-## 5.2 镜像管理
+#### 5.2 镜像管理
 
 选择docker服务，进入到如下页面
 
@@ -571,7 +573,7 @@ Portainer的首页
 
 ![image-20210304195150136](https://blog-resources.this0.com/image/202405061739109.png?x-oss-process=style/this0-blog) 
 
-## 5.3 容器管理
+#### 5.3 容器管理
 
 在首页选择docker服务，进入到如下页面
 
