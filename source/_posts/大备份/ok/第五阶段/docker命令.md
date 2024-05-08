@@ -591,17 +591,21 @@ Portainer的首页
 
 
 
-# 6 Spring Boot项目部署
+### 6 Spring Boot项目部署
+
+//TODO，考虑转移或整合这段
 
 本章节主要讲解的就是如何把一个Spring Boot项目使用docker进行部署，以减少整个项目的维护成本。
 
-## 6.1 dockerfile
+#### 6.1 dockerfile
 
-### 6.1.1 dockerfile简介
+##### 6.1.1 dockerfile简介
 
 前面我们所使用的镜像都是别人构建好的，但是别人构建好的镜像不一定能满足我们的需求。为了满足我们自己的某一些需求，此时我们就需要构建自己的镜像，怎么构建？使用dockerfile。
 
 dockerfile就是一个**文本文件**，在这个文本文件中可以使用docker所提供的一些指令来指定我们构建镜像的细节，后期就可以使用这个dockerfile文件来构建自己的镜像。
+
+//TODO,dockerfile文件内容，4部分
 
 dockerfile文件内容一般分为4部分：
 
@@ -624,7 +628,7 @@ dockerfile文件内容一般分为4部分：
 |    ADD     | ADD source_dir/file                    | 将宿主机的文件复制到容器内，如果是压缩文件，则复制后自动解压 |
 | ENTRYPOINT | ENTRYPOINT "command" "param1" "param2" | 用来指定容器启动时所执行的命令                               |
 
-### 6.1.2 入门案例
+##### 6.1.2 入门案例
 
 需求：使用dockerfile来构建一个包含Jdk17的centos7镜像
 
@@ -682,7 +686,7 @@ docker run -it --name atguigu-centos centos7-jdk17 /bin/bash
 
 
 
-## 6.2 案例介绍与需求分析
+#### 6.2 案例介绍与需求分析
 
 需求：将提供的Spring Boot项目使用容器化进行部署
 
@@ -707,7 +711,7 @@ docker run -it --name atguigu-centos centos7-jdk17 /bin/bash
 
 
 
-## 6.3 docker部署Mysql
+#### 6.3 docker部署Mysql
 
 使用docker部署Mysql步骤如下所示：
 
@@ -722,17 +726,17 @@ mysql -uroot -p								# 登录mysql
 
 
 
-问题：如果sqlyog出现2058的异常
+问题：如果sqlyog出现2058的异常，更换密码的本地校验规则
 
 ~~~
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
 ~~~
 
-并创建对一个的数据库和数据库表
+创建对应的数据库和表
 
 创建数据库：docker
 
-创建表：
+创建测试表：
 
 ```sql
 CREATE TABLE `tb_school` (
@@ -746,18 +750,8 @@ CREATE TABLE `tb_school` (
 添加测试数据
 
 ~~~sql
-
-INSERT INTO `tb_school` VALUES (1, '尚硅谷-北京校区', '北京市昌平区宏福科技园2号楼3层');
-INSERT INTO `tb_school` VALUES (2, '尚硅谷-上海校区', '上海市松江区谷阳北路166号大江商厦3层');
-INSERT INTO `tb_school` VALUES (3, '尚硅谷-深圳校区', '深圳市宝安区西部硅谷大厦B座C区一层');
-INSERT INTO `tb_school` VALUES (4, '尚硅谷-西安校区', '西安市雁塔区和发智能大厦B座3层');
-INSERT INTO `tb_school` VALUES (5, '尚硅谷-成都校区', '成都市成华区北辰星拱青创园综合楼3层');
-INSERT INTO `tb_school` VALUES (6, '尚硅谷-武汉校区', '武汉市东湖高新区东湖网谷6号楼4层');
+INSERT INTO `tb_school` VALUES (1, '学校', '学校地址');
 ~~~
-
-
-
-
 
 ## 6.4 dockerfile构建镜像
 
