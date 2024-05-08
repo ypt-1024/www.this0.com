@@ -753,9 +753,9 @@ CREATE TABLE `tb_school` (
 INSERT INTO `tb_school` VALUES (1, '学校', '学校地址');
 ~~~
 
-## 6.4 dockerfile构建镜像
+#### 6.4 dockerfile构建镜像
 
-### 6.4.1 项目打包
+##### 6.4.1 项目打包
 
 具体步骤：
 
@@ -765,7 +765,7 @@ INSERT INTO `tb_school` VALUES (1, '学校', '学校地址');
 
 3、上传jar包到linux服务器上
 
-### 6.4.2 dockerfile文件
+##### 6.4.2 dockerfile文件
 
 dockerfile文件的内容如下所示：
 
@@ -786,7 +786,7 @@ ENTRYPOINT ["java" , "-jar" , "ebuy-docker-1.0-SNAPSHOT.jar"]
 
 ![image-20230424104219638](https://blog-resources.this0.com/image/202405061739113.png?x-oss-process=style/this0-blog) 
 
-### 6.4.3 构建镜像
+##### 6.4.3 构建镜像
 
 命令如下所示： 
 
@@ -798,9 +798,7 @@ docker build -t ebuy-docker:v1.0 .
 
 ![image-20230717113801147](https://blog-resources.this0.com/image/202405061739114.png?x-oss-process=style/this0-blog) 
 
-
-
-## 6.5 创建容器
+#### 6.5 创建容器
 
 命令如下所示：
 
@@ -810,11 +808,7 @@ docker run -d --name ebuy-docker -p 8081:8081 ebuy-docker:v1.0
 
 访问测试: http://192.168.6.131:8081
 
-![image-20230717113933332](https://blog-resources.this0.com/image/202405061739115.png?x-oss-process=style/this0-blog)
-
-
-
-# 7 Maven的docker插件
+### 7 Maven的docker插件
 
 刚才的构建过程是手动镜像构建的过程。使用Maven的docker插件可以实现镜像的自动化部署。
 
@@ -891,9 +885,7 @@ systemctl daemon-reload				#重启守护进程
 systemctl restart docker			#重启docker
 ```
 
-说明：2375端口是Docker的API端口，它允许开发者通过RESTful API进行容器和镜像的管理
-
-
+说明：`2375端口是Docker的API端口`，它允许开发者通过RESTful API进行容器和镜像的管理
 
 3、编写dockerfile文件
 
@@ -905,7 +897,7 @@ systemctl restart docker			#重启docker
 
 ```shell
 FROM centos7-jdk17
-MAINTAINER atguigu
+MAINTAINER this0
 EXPOSE 8081
 ADD target/ebuy-docker-1.0-SNAPSHOT.jar /ebuy-docker-1.0-SNAPSHOT.jar
 
@@ -927,6 +919,8 @@ docker run -d --name ebuy-docker -p 8082:8081 ebuy-docker:latest
 ```
 
 
+
+//TODO,后面再看下面的内容
 
 # 8 docker compose
 
