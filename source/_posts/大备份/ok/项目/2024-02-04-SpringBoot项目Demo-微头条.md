@@ -31,6 +31,8 @@ description: 改成博客文章发布
 
 ## 一、微头条案例介绍
 
+//TODO，图片没替换
+
 ### 微头条业务简介
 
 -   用户功能
@@ -75,31 +77,31 @@ description: 改成博客文章发布
 
 > 头条首页信息搜索
 
-![](http://cdn.this0.com/blog/img/image_AEA1JELlwg.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=vFyJQxQ85xil+uolHeZtjgaQ8zU=&x-oss-process=style/cdn.this0)
+![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_AEA1JELlwg.png)
 
 > 登录功能
 
-![](http://cdn.this0.com/blog/img/image_tanjgauKKL.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=S0h8DiH1qPuVIm1+N6TThJvKIA8=&x-oss-process=style/cdn.this0)
+![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_tanjgauKKL.png)
 
 > 注册功能
 
-![](http://cdn.this0.com/blog/img/image_UtZ3I_X_Pp.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=hg9GiqRcd3kjTjalsi0D+qfOtkY=&x-oss-process=style/cdn.this0)
+![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_UtZ3I_X_Pp.png)
 
 > 展示功能
 
-![](http://cdn.this0.com/blog/img/image_HZ3nuKozDC.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=xdBg25iwJpYs6vcUsupumqln9g8=&x-oss-process=style/cdn.this0)
+![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_HZ3nuKozDC.png)
 
 > 发布头条功能
 
-![](http://cdn.this0.com/blog/img/image_pD-aiaiz-h.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=xKlhcVbNfi1rMWg9HqjJsD7cuKs=&x-oss-process=style/cdn.this0)
+![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_pD-aiaiz-h.png)
 
 > 修改头条功能
 
-![](http://cdn.this0.com/blog/img/image_dvu1Jbs-mJ.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=va/sszza9xt5xWwejTPfJ1Jm69c=&x-oss-process=style/cdn.this0)
+![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_dvu1Jbs-mJ.png)
 
 > 删除头条功能
 
-![](http://cdn.this0.com/blog/img/image_H4EHFxNCQa.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=wwXBnPD9uT0swlZkeQjGiFF9DgU=&x-oss-process=style/cdn.this0)
+![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_H4EHFxNCQa.png)
 
 ## 二、微头条前端搭建
 
@@ -109,15 +111,15 @@ description: 改成博客文章发布
 
   atguigu-headline.rar
 
-  ![](http://cdn.this0.com/blog/img/image_vslTlA9lTP.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=jU2Q314DsNHrpkIPuSN5LU/YAAY=&x-oss-process=style/cdn.this0)
+  ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_vslTlA9lTP.png)
 
 - 使用vscode打开工程
 
-  ![](http://cdn.this0.com/blog/img/image_DLv8kvhW2X.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=P6fjezpKBGxkq0nirH7lavH2E48=&x-oss-process=style/cdn.this0)
+  ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_DLv8kvhW2X.png)
 
 - 进入项目后打开集成终端或者在src上右击选择在集成终端中打开
 
-  ![](http://cdn.this0.com/blog/img/image_4e4FtsunND.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=Z3D1YWkJuj6idm2oyrUCmmOF8jM=&x-oss-process=style/cdn.this0)
+  ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_4e4FtsunND.png)
 
 - 通过 npm run dev启动前端项目
 
@@ -351,7 +353,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 4. druid兼容springboot3文件(过时，这个版本已经兼容了)
 
-   ![](http://cdn.this0.com/blog/img/image_xIwwJ7Z2TM.png)
+   ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_xIwwJ7Z2TM.png)
 
    文件名和内容
 
@@ -529,11 +531,11 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 1. 逆向工程
 
-   ![](http://cdn.this0.com/blog/img/image_kxo8e0mx90.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=NzF+lqvSjIIAt2qpBCUjQStw670=&x-oss-process=style/cdn.this0)
+   ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_kxo8e0mx90.png)
 
-   ![](http://cdn.this0.com/blog/img/image_ZU10-oHDap.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=7Rket8rc2ye4u9u7evO860YenX0=&x-oss-process=style/cdn.this0)
+   ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_ZU10-oHDap.png)
 
-   ![](http://cdn.this0.com/blog/img/image_TVundRSFu4.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=MYSZNs8Y/HQVuM76PkvJbUSunn0=&x-oss-process=style/cdn.this0)
+   ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_TVundRSFu4.png)
 
 2. 完善实体类注解
 
@@ -574,7 +576,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
      令牌（Token）：在计算机领域，令牌是一种代表某种访问权限或身份认证信息的令牌。它可以是一串随机生成的字符或数字，用于验证用户的身份或授权用户对特定资源的访问。普通的令牌可能以各种形式出现，如访问令牌、身份令牌、刷新令牌等。
 
-     ![](http://cdn.this0.com/blog/img/image_ezWGkcz3-q.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=O3dGo5iJL27CeyHUSV+j0j4Opdk=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_ezWGkcz3-q.png)
 
      简单理解 : 每个用户生成的唯一字符串标识,可以进行用户识别和校验
 
@@ -588,7 +590,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
      JWT(JSON Web Token)是具体可以生成,校验,解析等动作Token的技术(实现类)
 
-     ![](http://cdn.this0.com/blog/img/image_tyJl6YQaLO.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=RPeRc7I0OFEwnoiBcn+2galVY8E=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_tyJl6YQaLO.png)
 
   3. jwt工作流程
 
@@ -601,7 +603,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
      JWT由三部分组成: header(头部).payload(载荷).signature(签名)
 
-     ![](http://cdn.this0.com/blog/img/image_BN9CiapOe7.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=D/F6OVOYqMrvgtapnIUffGXl1fo=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_BN9CiapOe7.png)
 
      我们需要理解的是, jwt可以携带很多信息! 一般情况,需要加入:有效时间,签名秘钥,其他用户标识信息!
 
@@ -737,7 +739,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/1687657661761_AB9lALvt6R.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=TmY/KofOmwP9xYEIND/B+tc32/o=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/1687657661761_AB9lALvt6R.png)
 
      用户在客户端输入用户名密码并向后端提交,后端根据用户名和密码判断登录是否成功,用户有误或者密码有误响应不同的提示信息！
 
@@ -1006,7 +1008,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/checkuserName_RkV-nZcKMO.gif?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=olLrIH2kAeychcTOP+I1DtC7ABk=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/checkuserName_RkV-nZcKMO.gif)
 
      用户在注册时输入用户名时,立刻将用户名发送给后端,后端根据用户名查询用户名是否可用并做出响应
 
@@ -1101,7 +1103,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/regist_HHgh8aMYtY.gif)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/regist_HHgh8aMYtY.gif)
 
      客户端将新用户信息发送给服务端,服务端将新用户存入数据库,存入之前做用户名是否被占用校验,校验通过响应成功提示,否则响应失败提示
 
@@ -1203,7 +1205,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/image_AmGGS4B3gy.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=PTKBABe8hTbL6yFKrayznO4kHJI=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_AmGGS4B3gy.png)
 
      进入新闻首页,查询所有分类并动态展示新闻类别栏位
 
@@ -1280,7 +1282,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/image_deWHSPD7Ma.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=rUarbs1UdUROTMgEIBnBc2TTH+4=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_deWHSPD7Ma.png)
 
      -   客户端向服务端发送查询关键字,新闻类别,页码数,页大小
      -   服务端根据条件搜索分页信息,返回含`页码数,页大小,总页数,总记录数,当前页数据等信息,`并根据时间降序,浏览量降序排序
@@ -1458,7 +1460,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/image_8Na6D2JJhl.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=4frZ5jF8XkVp6BkDCnoXoK9HGe4=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_8Na6D2JJhl.png)
 
      -   用户点击"查看全文"时,向服务端发送新闻id
      -   后端根据新闻id查询完整新闻文章信息并返回
@@ -1595,7 +1597,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/image_z3JT_Q93XX.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=NflZtCD3HyBjnCeR94JimHSQwbA=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_z3JT_Q93XX.png)
 
      -   客户端在进入发布页前、发布新闻前、进入修改页前、修改前、删除新闻前先向服务端发送请求携带token请求头
      -   后端接收token请求头后,校验用户登录是否过期并做响应
@@ -1697,7 +1699,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/1683883660552_8svcbagw2y.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=nMCXB2ukQXCkKUKdR2S5HKCbpCs=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/1683883660552_8svcbagw2y.png)
 
      -   用户在客户端输入发布的新闻信息完毕后
      -   发布前先请求后端的登录校验接口验证登录
@@ -1793,7 +1795,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/image_L870gB_yYk.png)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_L870gB_yYk.png)
 
      -   前端先调用登录校验接口,校验登录是否过期
      -   登录校验通过后 ,则根据新闻id查询新闻的完整信息并响应给前端
@@ -1936,7 +1938,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://cdn.this0.com/blog/img/image_QD2YtdsmHQ.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=fvXcG5oxQRkc8UnkuYB4Gsh7vaU=&x-oss-process=style/cdn.this0)
+     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_QD2YtdsmHQ.png)
 
      -   将要删除的新闻id发送给服务端
      -   服务端校验登录是否过期,未过期则直接删除,过期则响应登录过期信息

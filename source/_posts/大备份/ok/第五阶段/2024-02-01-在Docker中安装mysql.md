@@ -66,7 +66,7 @@ docker update --restart=always mysql
 
 #### 1 连接mysql测试
 
-![image-20240201070708595](http://cdn.this0.com/blog/img/image-20240201070708595.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000000&Signature=N84XJcuxwGvnERTbXnSwXtSZfr0=&x-oss-process=style/cdn.this0)
+![image-20240201070708595](https://blog-resources.this0.com/image/202405082036678.png?x-oss-process=style/this0-blog)
 
 #### 2 查看字符集
 
@@ -74,7 +74,7 @@ docker update --restart=always mysql
 SHOW VARIABLES LIKE 'character%'
 ```
 
-![image-20240201072817525](http://cdn.this0.com/blog/img/image-20240201072817525.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=CVgKJOd/rtq1RSvuojBUE7uPAjs=&x-oss-process=style/cdn.this0)
+![image-20240201072817525](https://blog-resources.this0.com/image/202405082037348.png?x-oss-process=style/this0-blog)
 
 ### 6 授予远程访问权限
 
@@ -88,4 +88,4 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '密码' WITH GRANT OPTI
 mysql -h  你的主机ip -P mysql端口号 -u root -p
 ```
 
-![image-20240201210723229](http://cdn.this0.com/blog/img/image-20240201210723229.png?OSSAccessKeyId=LTAI5tAje5MhbPSKCC6QdGZb&Expires=9000000001&Signature=sG3mZWSaLhza0FDCyw4TsKBx4Rk=&x-oss-process=style/cdn.this0)
+![image-20240201210723229](https://blog-resources.this0.com/image/202405082037526.png?x-oss-process=style/this0-blog)

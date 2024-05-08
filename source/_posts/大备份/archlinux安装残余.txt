@@ -34,9 +34,7 @@ su
    51  alsamixer
    52   sudo pacman -S alsa-utils
 
-   55  alsamixer
-   56   sudo pacman -S alsa-utils
-   57   sudo pacman -S alsa-utils
+
 
 
 
