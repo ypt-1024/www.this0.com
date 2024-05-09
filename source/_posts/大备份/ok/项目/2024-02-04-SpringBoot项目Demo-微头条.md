@@ -318,7 +318,6 @@ SET FOREIGN_KEY_CHECKS = 1;
             </plugin>
         </plugins>
     </build>
-    ```
 
 3. 编写配置
 
@@ -1482,7 +1481,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
      成功
 
-     ```java
+     ```json
      {
          "code":"200",
          "message":"success",
@@ -1617,7 +1616,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
      未过期：
 
-     ```java
+     ```json
      {
          "code":"200",
          "message":"success",
@@ -1627,7 +1626,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
      过期：
 
-     ```java
+     ```json
      {
          "code":"504",
          "message":"loginExpired",
@@ -1742,7 +1741,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
      成功
 
-     ```java
+     ```json
      {
          "code":"200",
          "message":"success",
@@ -1816,7 +1815,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
      成功
 
-     ```java
+     ```json
      {
          "code":"200",
          "message":"success",
@@ -1888,7 +1887,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
      成功
 
-     ```java
+     ```json
      {
          "code":"200",
          "message":"success",
@@ -1959,7 +1958,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
      成功
 
-     ```java
+     ```json
      {
          "code":"200",
          "message":"success",
