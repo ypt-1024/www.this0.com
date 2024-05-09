@@ -414,7 +414,7 @@ footer:
   custom_text:
   runtime:
     enable: false
-    launch_time: 5/6/2024 15:09:00 # 网站上线时间
+    launch_time: 5/9/2024 11:27:00 # 网站上线时间
     work_img: https://this0.oss-cn-chengdu.aliyuncs.com/blog/base/svg/this0-%E4%B8%8A%E7%8F%AD%E4%B8%AD%F0%9F%92%BB.svg
     work_description: 上班中就要认认真真的工作
     offduty_img: https://this0.oss-cn-chengdu.aliyuncs.com/blog/base/svg/this0-%E4%BC%91%E6%81%AF%E5%95%A6%F0%9F%8C%99.svg
