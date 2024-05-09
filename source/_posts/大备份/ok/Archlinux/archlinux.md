@@ -265,6 +265,14 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 yay -S p7zip-natspec
 ```
 
+#### 9 解决discover经常卡死的问题
+
+安装 packagekit-qt6
+
+```bash
+ yay -S packagekit-qt6
+```
+
 ### 6. 添加存储库
 
 #### 6.1 ArchLinuxCN
