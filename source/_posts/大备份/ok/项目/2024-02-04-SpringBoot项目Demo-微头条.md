@@ -8,6 +8,7 @@ categories:
 abbrlink: 5c589848
 date: 2024-02-04 15:23:17
 description: 改成博客文章发布
+
 ---
 
 # SpringBoot项目Demo-微头条
@@ -77,31 +78,31 @@ description: 改成博客文章发布
 
 > 头条首页信息搜索
 
-![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_AEA1JELlwg.png)
+![](https://blog-resources.this0.com/image/202405101325282.png?x-oss-process=style/this0-blog)
 
 > 登录功能
 
-![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_tanjgauKKL.png)
+![](https://blog-resources.this0.com/image/202405101325211.png?x-oss-process=style/this0-blog)
 
 > 注册功能
 
-![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_UtZ3I_X_Pp.png)
+![](https://blog-resources.this0.com/image/202405101325258.png?x-oss-process=style/this0-blog)
 
 > 展示功能
 
-![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_HZ3nuKozDC.png)
+![](https://blog-resources.this0.com/image/202405101325265.png?x-oss-process=style/this0-blog)
 
 > 发布头条功能
 
-![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_pD-aiaiz-h.png)
+![](https://blog-resources.this0.com/image/202405101325243.png?x-oss-process=style/this0-blog)
 
 > 修改头条功能
 
-![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_dvu1Jbs-mJ.png)
+![](https://blog-resources.this0.com/image/202405101325277.png?x-oss-process=style/this0-blog)
 
 > 删除头条功能
 
-![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_H4EHFxNCQa.png)
+![](https://blog-resources.this0.com/image/202405101325725.png?x-oss-process=style/this0-blog)
 
 ## 二、微头条前端搭建
 
@@ -111,15 +112,15 @@ description: 改成博客文章发布
 
   atguigu-headline.rar
 
-  ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_vslTlA9lTP.png)
+  ![](https://blog-resources.this0.com/image/202405101325726.png?x-oss-process=style/this0-blog)
 
 - 使用vscode打开工程
 
-  ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_DLv8kvhW2X.png)
+  ![](https://blog-resources.this0.com/image/202405101325777.png?x-oss-process=style/this0-blog)
 
 - 进入项目后打开集成终端或者在src上右击选择在集成终端中打开
 
-  ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_4e4FtsunND.png)
+  ![](https://blog-resources.this0.com/image/202405101325817.png?x-oss-process=style/this0-blog)
 
 - 通过 npm run dev启动前端项目
 
@@ -137,7 +138,6 @@ description: 改成博客文章发布
 [top\_news.sql](file/top_news_tOm1rnSjEc.sql "top_news.sql")
 
 ```sql
-
 USE sm_db;
 
 SET NAMES utf8mb4;
@@ -352,7 +352,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 4. druid兼容springboot3文件(过时，这个版本已经兼容了)
 
-   ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_xIwwJ7Z2TM.png)
+   ![](https://blog-resources.this0.com/image/202405101325828.png?x-oss-process=style/this0-blog)
 
    文件名和内容
 
@@ -530,11 +530,11 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 1. 逆向工程
 
-   ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_kxo8e0mx90.png)
+   ![](https://blog-resources.this0.com/image/202405101325672.png?x-oss-process=style/this0-blog)
 
-   ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_ZU10-oHDap.png)
+   ![](https://blog-resources.this0.com/image/202405101325887.png?x-oss-process=style/this0-blog)
 
-   ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_TVundRSFu4.png)
+   ![](https://blog-resources.this0.com/image/202405101325015.png?x-oss-process=style/this0-blog)
 
 2. 完善实体类注解
 
@@ -575,7 +575,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
      令牌（Token）：在计算机领域，令牌是一种代表某种访问权限或身份认证信息的令牌。它可以是一串随机生成的字符或数字，用于验证用户的身份或授权用户对特定资源的访问。普通的令牌可能以各种形式出现，如访问令牌、身份令牌、刷新令牌等。
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_ezWGkcz3-q.png)
+     ![](https://blog-resources.this0.com/image/202405101325017.png?x-oss-process=style/this0-blog)
 
      简单理解 : 每个用户生成的唯一字符串标识,可以进行用户识别和校验
 
@@ -589,7 +589,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
      JWT(JSON Web Token)是具体可以生成,校验,解析等动作Token的技术(实现类)
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_tyJl6YQaLO.png)
+     ![](https://blog-resources.this0.com/image/202405101325070.png?x-oss-process=style/this0-blog)
 
   3. jwt工作流程
 
@@ -602,7 +602,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
      JWT由三部分组成: header(头部).payload(载荷).signature(签名)
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_BN9CiapOe7.png)
+     ![](https://blog-resources.this0.com/image/202405101325059.png?x-oss-process=style/this0-blog)
 
      我们需要理解的是, jwt可以携带很多信息! 一般情况,需要加入:有效时间,签名秘钥,其他用户标识信息!
 
@@ -738,7 +738,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/1687657661761_AB9lALvt6R.png)
+     ![](https://blog-resources.this0.com/image/202405101325126.png?x-oss-process=style/this0-blog)
 
      用户在客户端输入用户名密码并向后端提交,后端根据用户名和密码判断登录是否成功,用户有误或者密码有误响应不同的提示信息！
 
@@ -1007,7 +1007,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/checkuserName_RkV-nZcKMO.gif)
+     ![](https://blog-resources.this0.com/image/202405101325232.gif?x-oss-process=style/this0-blog)
 
      用户在注册时输入用户名时,立刻将用户名发送给后端,后端根据用户名查询用户名是否可用并做出响应
 
@@ -1102,7 +1102,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/regist_HHgh8aMYtY.gif)
+     ![](https://blog-resources.this0.com/image/202405101325290.gif?x-oss-process=style/this0-blog)
 
      客户端将新用户信息发送给服务端,服务端将新用户存入数据库,存入之前做用户名是否被占用校验,校验通过响应成功提示,否则响应失败提示
 
@@ -1204,7 +1204,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_AmGGS4B3gy.png)
+     ![](https://blog-resources.this0.com/image/202405101325346.png?x-oss-process=style/this0-blog)
 
      进入新闻首页,查询所有分类并动态展示新闻类别栏位
 
@@ -1281,7 +1281,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_deWHSPD7Ma.png)
+     ![](https://blog-resources.this0.com/image/202405101325381.png?x-oss-process=style/this0-blog)
 
      -   客户端向服务端发送查询关键字,新闻类别,页码数,页大小
      -   服务端根据条件搜索分页信息,返回含`页码数,页大小,总页数,总记录数,当前页数据等信息,`并根据时间降序,浏览量降序排序
@@ -1459,7 +1459,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_8Na6D2JJhl.png)
+     ![](https://blog-resources.this0.com/image/202405101325443.png?x-oss-process=style/this0-blog)
 
      -   用户点击"查看全文"时,向服务端发送新闻id
      -   后端根据新闻id查询完整新闻文章信息并返回
@@ -1596,7 +1596,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_z3JT_Q93XX.png)
+     ![](https://blog-resources.this0.com/image/202405101325500.png?x-oss-process=style/this0-blog)
 
      -   客户端在进入发布页前、发布新闻前、进入修改页前、修改前、删除新闻前先向服务端发送请求携带token请求头
      -   后端接收token请求头后,校验用户登录是否过期并做响应
@@ -1698,7 +1698,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/1683883660552_8svcbagw2y.png)
+     ![](https://blog-resources.this0.com/image/202405101326605.png?x-oss-process=style/this0-blog)
 
      -   用户在客户端输入发布的新闻信息完毕后
      -   发布前先请求后端的登录校验接口验证登录
@@ -1794,7 +1794,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_L870gB_yYk.png)
+     ![](https://blog-resources.this0.com/image/202405101326684.png?x-oss-process=style/this0-blog)
 
      -   前端先调用登录校验接口,校验登录是否过期
      -   登录校验通过后 ,则根据新闻id查询新闻的完整信息并响应给前端
@@ -1937,7 +1937,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
   1. 需求描述
 
-     ![](http://this0.oss-cn-chengdu.aliyuncs.com/blog/img/image_QD2YtdsmHQ.png)
+     ![](https://blog-resources.this0.com/image/202405101326760.png?x-oss-process=style/this0-blog)
 
      -   将要删除的新闻id发送给服务端
      -   服务端校验登录是否过期,未过期则直接删除,过期则响应登录过期信息

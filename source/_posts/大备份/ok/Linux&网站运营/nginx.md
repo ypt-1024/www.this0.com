@@ -95,6 +95,6 @@ server {
 
    在这个位置添加
 
-![image.png](http://cdn.this0.com/blog/img/6ea3db7d87b74089209a6280525cb531.png?&Expires=9000000000&Signature=eppfoVPB514d/H3VPQAUIr9fL8I=&x-oss-process=style/cdn.this0)
+![image.png](https://blog-resources.this0.com/image/202405101324919.png?x-oss-process=style/this0-blog)
 
 然后保存
