@@ -388,11 +388,21 @@ fuse2环境，解决双击appimage文件执行不了的问题
 sudo pacman -S fuse2
 ```
 
-#### 7 截图工具 spectacle
+#### 7 截图工具
+
+##### 1 spectacle
 
 ```
 sudo pacman  -S spectacle
 ```
+
+##### 2 火焰截图
+
+```
+yay -S flameshot
+```
+
+安装完自己配置快捷键，我使用的ctrl + shift  + s，调用火焰截图，把文件另存为的快捷键替换了。
 
 #### 8 Discover商店
 
@@ -484,10 +494,17 @@ sudo pacman -S neofetch
 yay -S netease-cloud-music
 ```
 
-#### 15 火焰截图
+#### 15 录屏工具
+
+obs-studio
 
 ```
-yay -S flameshot
+yay -S obs-studio
 ```
 
-安装完自己配置快捷键，我使用的ctrl + shift  + s，调用火焰截图，把文件另存为的快捷键替换了。
+#### 16 steam
+
+```
+yay -S steam-native-runtime
+```
+

@@ -1,15 +1,7 @@
-su
 
 
 
-   duwindows
-   16  sudo pacman -S ntfs-3g
 
-
-   19  yay -S unrar
-   20  yay -S p7zip
-   21  yay -S obs-studio
-   22  yay -S baidunetdisk-electron
    23  yay -S kdenlive
    24  yay -S gimp
    25  yay -S flameshot
@@ -28,7 +20,7 @@ su
    40  neofetch
    41  neovim
 
-   43  sudo pacman -S steam
+   43
 
 
    51  alsamixer
