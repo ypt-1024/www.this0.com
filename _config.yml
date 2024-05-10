@@ -105,7 +105,7 @@ theme: anzhiyu
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
 - type: 'git'
-  repository: ypt@121.37.242.52:/home/ypt/blog.git
+  repository:
   branck: master
 - type: baidu_url_submitter         # 新加的推送
 

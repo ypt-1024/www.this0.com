@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 ### 1 nodejs的简介和安装
 
 #### 1 什么是Nodejs

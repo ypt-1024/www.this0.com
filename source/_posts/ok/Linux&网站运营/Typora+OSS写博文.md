@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 ### 1 markdown编辑器Typora安装
 
 略

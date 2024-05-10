@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 ### （1）远程连接问题
 
 在用SQLyog或Navicat中配置远程连接MySQL数据库时遇到如下报错信息，这是由于MySQL默认不支持远

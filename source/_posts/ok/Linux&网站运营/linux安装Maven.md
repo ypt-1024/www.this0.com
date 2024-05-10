@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 ### 1 下载
 
 maven官方下载地址：https://maven.apache.org/download.cgi

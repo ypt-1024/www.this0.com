@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 ### 1 docker的安装与卸载
 
 * docker 从 17.03 版本之后分为 CE（Community Edition: 社区版） 和 EE（Enterprise Edition: 企业版），CE版本是免费的，EE版本是收费的。本次我们使用社区版。

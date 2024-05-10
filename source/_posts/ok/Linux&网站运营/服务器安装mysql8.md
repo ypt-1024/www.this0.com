@@ -1,3 +1,6 @@
+---
+abbrlink: '0'
+---
 Huawei Cloud EulerOS 2.0服务器安装mysql8.0.34
 
 ### 1.下载（519.8M那个）并上传到安装目录
