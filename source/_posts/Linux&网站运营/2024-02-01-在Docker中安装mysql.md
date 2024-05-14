@@ -17,13 +17,21 @@ docker pull mysql:5.7
 
 ### 2 添加mysql配置文件
 
-新建配置文件存放目录
+#### 1 创建数据存放目录
 
 ```
 mkdir -p /usr/local/SDK_YPT/mysql/conf
 ```
 
-新建配置文件 my.cnf， 拷贝以下内容
+#### 2 创建配置文件
+
+在刚创建的目录下新建配置文件 my.cnf
+
+```
+vim /usr/local/SDK_YPT/mysql/conf/my.cnf
+```
+
+拷贝如下内容：
 
 ```
 [client]
@@ -43,17 +51,7 @@ collation-server=utf8mb4_unicode_ci
 *`映射文件目录里不要有以前的数据库残留文件`
 
 ```
-docker run -p 服务器映射端口:3306 --name mysql \
-
--v /usr/local/SDK_YPT/mysql/log:/var/log/mysql \
-
--v /usr/local/SDK_YPT/mysql/data:/var/lib/mysql \
-
--v /usr/local/SDK_YPT/mysql/conf:/etc/mysql/conf.d \
-
--e MYSQL_ROOT_PASSWORD=密码 \
-
--d mysql:5.7
+docker run -p 映射端口:3306 --name mysql -v /usr/local/SDK_YPT/mysql/log:/var/log/mysql -v /usr/local/SDK_YPT/mysql/data:/var/lib/mysql -v /usr/local/SDK_YPT/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=设置密码 -d mysql:5.7
 ```
 
 ### 4 设置mysql自启
