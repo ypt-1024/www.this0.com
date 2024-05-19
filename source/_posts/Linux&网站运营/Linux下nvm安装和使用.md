@@ -57,7 +57,7 @@ touch my_env.sh
 
 不建议直接修改配置文件来添加环境变量，这里使用将nvm配置文件my_env.sh包含到~/.zshrc的方法实现
 
-（！！我使用的zsh,不是bash！！）
+（！！我使用的zsh,不是bash！！,所以需要多这一步，没改过bash不用这样操作）
 
 ```bash
 sudo vim ~/.zshrc
