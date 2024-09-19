@@ -4,17 +4,17 @@
 
 # Site
 title: This0
-subtitle: '副标题'
-description: 'A BLOG'
-keywords: 余芃涛
+subtitle: ''
+description: 'This0'
+keywords: Godot学习，Godot教程,Java,maven,程序员，博客,This0,MySQL
 author: YuPengtao
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://www.this0.com
-permalink: post/:abbrlink.html # post为自定义前缀
+url: https://www.this0.com
+permalink: articles/:abbrlink.html # post为自定义前缀
 abbrlink:
   alg: crc32   #算法： crc16(default) and crc32
   rep: hex     #进制： dec(default) and hex
@@ -105,7 +105,7 @@ theme: anzhiyu
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
 - type: 'git'
-  repository: ypt@121.37.242.52:/home/ypt/blog.git
+  repository:
   branck: master
 - type: baidu_url_submitter         # 新加的推送
 
@@ -160,7 +160,7 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 baidu_url_submit:
-   count: 200  # 比如200，代表提交最新的200个链接
+   count: 000  # 比如200，代表提交最新的200个链接
    host: www.this0.com # 在百度站长平台中注册的域名
-   token: cpQywRMmrou9LMWe # 百度站长密钥
+   token: bS5KfnEmO6uzKTZe # 百度站长密钥
    path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里，这个默认
