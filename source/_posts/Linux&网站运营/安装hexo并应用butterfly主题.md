@@ -5,9 +5,10 @@ tags:
   - 环境搭建
 categories:
   - 网站说明文档
-description: 本文介绍了如何在hexo基础上，安装butterfly主题。
+description: 本文介绍了如何安装hexo并应用butterfly主题
 abbrlink: 268d8d1e
 date: 2023-10-26 05:36:00
+update: 2024-10-31 00:00:00
 ---
 ### 1. 安装前提
 
@@ -82,7 +83,7 @@ git clone -b master https://gitee.com/immyw/hexo-theme-butterfly.git themes/butt
 npm install hexo-theme-butterfly
 ```
 
-### 9. 应用主题
+#### 8.3. 应用主题
 
 修改 Hexo 根目录下的 _config.yml，把主题改为 butterfly
 
@@ -90,7 +91,7 @@ npm install hexo-theme-butterfly
 theme: butterfly #大概在103行
 ```
 
-### 10. 升级
+#### 8.4 升级主题
 
 升级前将hexo-theme-butterfly文件夹备份，npm更新会直接覆盖成新的包
 
@@ -98,13 +99,13 @@ theme: butterfly #大概在103行
 npm update hexo-theme-butterfly
 ```
 
-### 11. 优化设置
+#### 8.5 优化设置
 
 为了减少升级主题后带来的不便，请使用以下方法（建议，可以不做）。
 
 在 hexo 的根目录创建一个文件 _config.butterfly.yml，并把主题目录的 _config.yml 内容复制到 _config.butterfly.yml 去。( 注意: 复制的是主题的 _config.yml ，而不是 hexo 的 _config.yml)
 
-### 12. 注意事项
+#### 8.6 注意事项
 
 1. 不要把主题目录的 _config.yml 删掉
 
@@ -113,7 +114,8 @@ npm update hexo-theme-butterfly
 
 3. Hexo会自动合并主题中的 _config.yml 和 _config.butterfly.yml 里的配置，如果存在同名配置，会使用 _config.butterfly.yml 的配置，其优先度较高。
 
-### 13. 使用开源项目（可选）
+### 9. 使用其他主题
 
 比如使用我的项目[this0.com](http://www.this0.com),直接复制源码到初始化后的项目，覆盖文件。当然，就`不需要初始化hexo项目`这一步了。
 
+### 10. 
