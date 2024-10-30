@@ -1,20 +1,19 @@
 ---
-title: nvm安装和使用
+title: nvm安装和使用(Linux环境)
 tags:
-  - 前端
-  - node
+  - nvm
 categories:
-  - 环境安装
-  - nvm安装
+  - 服务器
 mathjax: true
-description: linux安装nvm和简单使用教程
+description: nvm安装和使用（linux环境）
 abbrlink: c2bdb00f
 date: 2023-08-14 16:29:02
+update: 2024-10-31 16:29:02
 ---
 
 ### 1. nvm官网
 
-nvm gIthub地址： https://github.com/nvm-sh/nvm
+nvm github地址： https://github.com/nvm-sh/nvm
 
 ### 2. 下载并解压nvm到自定义安装目录
 
@@ -24,7 +23,7 @@ nvm gIthub地址： https://github.com/nvm-sh/nvm
 sudo mkdir -p /opt/.nvm
 ```
 
-#### 2 下载(0.39.7版本)
+#### 2 下载(以0.39.7版本为例)
 
 ```
 sudo wget https://github.com/nvm-sh/nvm/archive/refs/tags/v0.39.7.tar.gz	
@@ -46,7 +45,7 @@ sudo chown -R $USER:$USER /opt/.nvm
 
 ### 3. 配置环境变量
 
-#### 1 创建自定义配置文件
+#### 1 创建自定义配置文件(可选)
 
 我的环境变量配置文件，是在/etc/profile.d/目录下，新建了一个配置文件my_env.sh
 
@@ -57,7 +56,7 @@ touch my_env.sh
 
 不建议直接修改配置文件来添加环境变量，这里使用将nvm配置文件my_env.sh包含到~/.zshrc的方法实现
 
-（！！我使用的zsh,不是bash！！,所以需要多这一步，没改过bash不用这样操作）
+（！！我使用的zsh,不是bash！！,所以需要多这一步，如果使用bash不需要这步操作）
 
 ```bash
 sudo vim ~/.zshrc
@@ -73,6 +72,8 @@ fi
 ```
 
 #### 2 nvm环境变量配置
+
+如果使用的是默认终端bash，配置文件是 ~/.bashrc，而不是上一步自己创建的my_env.sh，下同
 
 ```
 sudo vim /etc/profile.d/my_env.sh
@@ -97,10 +98,9 @@ source /etc/profile.d/my_env.sh
 nvm -v
 ```
 
-### 6. nvm常用操作：
+### 6. nvm常用命令
 
 ```
-#nvm常用命令
 nvm install 16.14.0			// 安装
 nvm uninstall 16.14.0     	// 卸载
 nvm use 16.14.0           	// 切换 
@@ -109,6 +109,8 @@ nvm ls-remote            	// 查看目前线上所能安装的所有 node 版本
 ```
 
 ### 7. 安装node，自动安装npm包管理工具
+
+略
 
 ### 8. 换源
 
