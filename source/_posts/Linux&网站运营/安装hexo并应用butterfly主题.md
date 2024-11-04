@@ -67,7 +67,9 @@ hexo cl; hexo g; hexo s -p 80
 
 本地访问http://localhost/
 
-### 8. 安装butterfly主题(可选)
+### 8. 安装主题(可选)
+
+以butterfly主题为例
 
 > 可选git安装或者npm安装，建议用git安装，npm安装还需要从node_modules里把主题文件移出来。
 
@@ -114,8 +116,13 @@ npm update hexo-theme-butterfly
 
 3. Hexo会自动合并主题中的 _config.yml 和 _config.butterfly.yml 里的配置，如果存在同名配置，会使用 _config.butterfly.yml 的配置，其优先度较高。
 
-### 9. 使用其他主题
+#### 8.7 使用其他主题
 
 比如使用我的项目[this0.com](http://www.this0.com),直接复制源码到初始化后的项目，覆盖文件。当然，就`不需要初始化hexo项目`这一步了。
 
-### 10. 
+### 9. 使用hexo更新本地文章到github
+
+####  1. 事前准备
+
+需要在配置好git
+

@@ -105,8 +105,9 @@ theme: anzhiyu
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
 - type: 'git'
-  repository:
-  branck: master
+  repo:
+    git@github.com:ypt-1024/www.this0.com.git
+  branch: master
 - type: baidu_url_submitter         # 新加的推送
 
 algolia:
