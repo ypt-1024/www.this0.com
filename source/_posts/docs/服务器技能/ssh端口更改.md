@@ -1,18 +1,14 @@
 ---
-abbrlink: '0'
----
-```
 title: 服务器的SSH连接端口更改
 tags:
   - SSH
 categories:
   - 服务器
 description: 两步改ssh连接端口
-abbrlink: 
+abbrlink: 2adc8523
 date: 2023-10-26 05:36:00
 update: 2024-10-31 05:36:00
-```
-
+---
 ## 两步改ssh连接端口
 
 ### 1 编辑ssh配置文件，自定义连接端口

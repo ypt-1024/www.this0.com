@@ -14,7 +14,7 @@ update: 2024-10-31 00:00:00
 
 安装 Hexo 相当简单，只需要先安装下列应用程序即可：
 
-- [Node.js](http://nodejs.org/) 在站内已有安装教程，[点我查看](http://this0.com/post/2023825a.html) //TODO(Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)
+- [Node.js](http://nodejs.org/) (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)
 - [Git](http://git-scm.com/)
 
 ### 2. Node.js 版本限制
